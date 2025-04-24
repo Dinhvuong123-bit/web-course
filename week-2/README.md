@@ -1,4 +1,4 @@
-# HIT15-WEB-PRIVATE-2024 - WEEK 2
+# WEB-PRIVATE-2025 - WEEK 2
 
 ---
 
@@ -73,15 +73,15 @@
 
 ### 2. Các thẻ cơ bản
 
-Trước khi bắt đầu tìm hiểu các thẻ cơ bản, các bạn hãy thực hiện theo các bước sau đây để có thể mở thư mục `HIT15_WEB_PRIVATE` trong VSCode
+Trước khi bắt đầu tìm hiểu các thẻ cơ bản, các bạn hãy thực hiện theo các bước sau đây để có thể mở thư mục `WEB_PRIVATE` trong VSCode
 
 - B1: Mở VSCode
 - B2:
 
   - Chọn `File` → Chọn `Add Folder to Workspace..`.
     ![add folder to workspace](./image/add-workspace.png)
-  - Một cửa sổ chọn thư mục hiện lên. Tìm đến chọn thư mục `HIT15_WEB_PRIVATE` và nhấn `Add`
-  - Nếu chưa thấy cửa sổ như sau, hãy nhìn qua hình thứ hai và bấm vào icon được gạch đỏ để thấy được folder `HIT15_WEB_PRIVATE`
+  - Một cửa sổ chọn thư mục hiện lên. Tìm đến chọn thư mục `WEB_PRIVATE` và nhấn `Add`
+  - Nếu chưa thấy cửa sổ như sau, hãy nhìn qua hình thứ hai và bấm vào icon được gạch đỏ để thấy được folder `WEB_PRIVATE`
     ![explorer](./image/explorer.png)
 
     ![open explorer](./image/open-explorer.png)
@@ -89,7 +89,7 @@ Trước khi bắt đầu tìm hiểu các thẻ cơ bản, các bạn hãy th�
 Nếu các bạn đã thêm được thư mục trên vào workspace, hãy tiếp tục thực hiện theo các bước dưới đây để tạo ra thư mục `week-2` và file `index.html` đầu tiên:
 
 - B1: Tạo thư mục `week-2`
-  - Click vào thư mục `HIT15_WEB_PRIVATE`
+  - Click vào thư mục `WEB_PRIVATE`
     ![alt](./image/click-folder.png)
   - Click vào icon được gạch đỏ, đặt tên `week-2` và nhấn enter
     ![alt](./image/add-folder.png)
