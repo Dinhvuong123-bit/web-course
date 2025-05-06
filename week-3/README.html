@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Week 3</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+
+    <style>
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #333;
+        background: 0 0;
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.4;
+        -moz-tab-size: 8;
+        -o-tab-size: 8;
+        tab-size: 8;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+      pre[class*="language-"] {
+        padding: 0.8em;
+        overflow: auto;
+        border-radius: 3px;
+        background: #f5f5f5;
+      }
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+        background: #f5f5f5;
+      }
+      .token.blockquote,
+      .token.comment {
+        color: #969896;
+      }
+      .token.cdata {
+        color: #183691;
+      }
+      .token.doctype,
+      .token.macro.property,
+      .token.punctuation,
+      .token.variable {
+        color: #333;
+      }
+      .token.builtin,
+      .token.important,
+      .token.keyword,
+      .token.operator,
+      .token.rule {
+        color: #a71d5d;
+      }
+      .token.attr-value,
+      .token.regex,
+      .token.string,
+      .token.url {
+        color: #183691;
+      }
+      .token.atrule,
+      .token.boolean,
+      .token.code,
+      .token.command,
+      .token.constant,
+      .token.entity,
+      .token.number,
+      .token.property,
+      .token.symbol {
+        color: #0086b3;
+      }
+      .token.prolog,
+      .token.selector,
+      .token.tag {
+        color: #63a35c;
+      }
+      .token.attr-name,
+      .token.class,
+      .token.class-name,
+      .token.function,
+      .token.id,
+      .token.namespace,
+      .token.pseudo-class,
+      .token.pseudo-element,
+      .token.url-reference .token.variable {
+        color: #795da3;
+      }
+      .token.entity {
+        cursor: help;
+      }
+      .token.title,
+      .token.title .token.punctuation {
+        font-weight: 700;
+        color: #1d3e81;
+      }
+      .token.list {
+        color: #ed6a43;
+      }
+      .token.inserted {
+        background-color: #eaffea;
+        color: #55a532;
+      }
+      .token.deleted {
+        background-color: #ffecec;
+        color: #bd2c00;
+      }
+      .token.bold {
+        font-weight: 700;
+      }
+      .token.italic {
+        font-style: italic;
+      }
+      .language-json .token.property {
+        color: #183691;
+      }
+      .language-markup .token.tag .token.punctuation {
+        color: #333;
+      }
+      .language-css .token.function,
+      code.language-css {
+        color: #0086b3;
+      }
+      .language-yaml .token.atrule {
+        color: #63a35c;
+      }
+      code.language-yaml {
+        color: #183691;
+      }
+      .language-ruby .token.function {
+        color: #333;
+      }
+      .language-markdown .token.url {
+        color: #795da3;
+      }
+      .language-makefile .token.symbol {
+        color: #795da3;
+      }
+      .language-makefile .token.variable {
+        color: #183691;
+      }
+      .language-makefile .token.builtin {
+        color: #0086b3;
+      }
+      .language-bash .token.keyword {
+        color: #0086b3;
+      }
+      pre[data-line] {
+        position: relative;
+        padding: 1em 0 1em 3em;
+      }
+      pre[data-line] .line-highlight-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+      }
+      pre[data-line] .line-highlight {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: inherit 0;
+        margin-top: 1em;
+        background: hsla(24, 20%, 50%, 0.08);
+        background: linear-gradient(
+          to right,
+          hsla(24, 20%, 50%, 0.1) 70%,
+          hsla(24, 20%, 50%, 0)
+        );
+        pointer-events: none;
+        line-height: inherit;
+        white-space: pre;
+      }
+      pre[data-line] .line-highlight:before,
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-start);
+        position: absolute;
+        top: 0.4em;
+        left: 0.6em;
+        min-width: 1em;
+        padding: 0 0.5em;
+        background-color: hsla(24, 20%, 50%, 0.4);
+        color: #f4f1ef;
+        font: bold 65%/1.5 sans-serif;
+        text-align: center;
+        vertical-align: 0.3em;
+        border-radius: 999px;
+        text-shadow: none;
+        box-shadow: 0 1px #fff;
+      }
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-end);
+        top: auto;
+        bottom: 0.4em;
+      }
+      html body {
+        font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans,
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        overflow: initial;
+        box-sizing: border-box;
+        word-wrap: break-word;
+      }
+      html body > :first-child {
+        margin-top: 0;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        line-height: 1.2;
+        margin-top: 1em;
+        margin-bottom: 16px;
+        color: #000;
+      }
+      html body h1 {
+        font-size: 2.25em;
+        font-weight: 300;
+        padding-bottom: 0.3em;
+      }
+      html body h2 {
+        font-size: 1.75em;
+        font-weight: 400;
+        padding-bottom: 0.3em;
+      }
+      html body h3 {
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+      html body h4 {
+        font-size: 1.25em;
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+      html body h6 {
+        font-size: 1em;
+        font-weight: 600;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5 {
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1em;
+      }
+      html body h6 {
+        color: #5c5c5c;
+      }
+      html body strong {
+        color: #000;
+      }
+      html body del {
+        color: #5c5c5c;
+      }
+      html body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      html body a {
+        color: #08c;
+        text-decoration: none;
+      }
+      html body a:hover {
+        color: #00a3f5;
+        text-decoration: none;
+      }
+      html body img {
+        max-width: 100%;
+      }
+      html body > p {
+        margin-top: 0;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+      }
+      html body > ol,
+      html body > ul {
+        margin-bottom: 16px;
+      }
+      html body ol,
+      html body ul {
+        padding-left: 2em;
+      }
+      html body ol.no-list,
+      html body ul.no-list {
+        padding: 0;
+        list-style-type: none;
+      }
+      html body ol ol,
+      html body ol ul,
+      html body ul ol,
+      html body ul ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body li {
+        margin-bottom: 0;
+      }
+      html body li.task-list-item {
+        list-style: none;
+      }
+      html body li > p {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body .task-list-item-checkbox {
+        margin: 0 0.2em 0.25em -1.8em;
+        vertical-align: middle;
+      }
+      html body .task-list-item-checkbox:hover {
+        cursor: pointer;
+      }
+      html body blockquote {
+        margin: 16px 0;
+        font-size: inherit;
+        padding: 0 15px;
+        color: #5c5c5c;
+        background-color: #f0f0f0;
+        border-left: 4px solid #d6d6d6;
+      }
+      html body blockquote > :first-child {
+        margin-top: 0;
+      }
+      html body blockquote > :last-child {
+        margin-bottom: 0;
+      }
+      html body hr {
+        height: 4px;
+        margin: 32px 0;
+        background-color: #d6d6d6;
+        border: 0 none;
+      }
+      html body table {
+        margin: 10px 0 15px 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: block;
+        width: 100%;
+        overflow: auto;
+        word-break: normal;
+        word-break: keep-all;
+      }
+      html body table th {
+        font-weight: 700;
+        color: #000;
+      }
+      html body table td,
+      html body table th {
+        border: 1px solid #d6d6d6;
+        padding: 6px 13px;
+      }
+      html body dl {
+        padding: 0;
+      }
+      html body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 700;
+      }
+      html body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      html body code {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        font-size: 0.85em;
+        color: #000;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+        padding: 0.2em 0;
+      }
+      html body code::after,
+      html body code::before {
+        letter-spacing: -0.2em;
+        content: "\00a0";
+      }
+      html body pre > code {
+        padding: 0;
+        margin: 0;
+        word-break: normal;
+        white-space: pre;
+        background: 0 0;
+        border: 0;
+      }
+      html body .highlight {
+        margin-bottom: 16px;
+      }
+      html body .highlight pre,
+      html body pre {
+        padding: 1em;
+        overflow: auto;
+        line-height: 1.45;
+        border: #d6d6d6;
+        border-radius: 3px;
+      }
+      html body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      html body pre code,
+      html body pre tt {
+        display: inline;
+        max-width: initial;
+        padding: 0;
+        margin: 0;
+        overflow: initial;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      html body pre code:after,
+      html body pre code:before,
+      html body pre tt:after,
+      html body pre tt:before {
+        content: normal;
+      }
+      html body blockquote,
+      html body dl,
+      html body ol,
+      html body p,
+      html body pre,
+      html body ul {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      html body kbd {
+        color: #000;
+        border: 1px solid #d6d6d6;
+        border-bottom: 2px solid #c7c7c7;
+        padding: 2px 4px;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+      }
+      @media print {
+        html body {
+          background-color: #fff;
+        }
+        html body h1,
+        html body h2,
+        html body h3,
+        html body h4,
+        html body h5,
+        html body h6 {
+          color: #000;
+          page-break-after: avoid;
+        }
+        html body blockquote {
+          color: #5c5c5c;
+        }
+        html body pre {
+          page-break-inside: avoid;
+        }
+        html body table {
+          display: table;
+        }
+        html body img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        html body code,
+        html body pre {
+          word-wrap: break-word;
+          white-space: pre;
+        }
+      }
+      .markdown-preview {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .markdown-preview ul {
+        list-style: disc;
+      }
+      .markdown-preview ul ul {
+        list-style: circle;
+      }
+      .markdown-preview ul ul ul {
+        list-style: square;
+      }
+      .markdown-preview ol {
+        list-style: decimal;
+      }
+      .markdown-preview ol ol,
+      .markdown-preview ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-preview ol ol ol,
+      .markdown-preview ol ul ol,
+      .markdown-preview ul ol ol,
+      .markdown-preview ul ul ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-preview .newpage,
+      .markdown-preview .pagebreak {
+        page-break-before: always;
+      }
+      .markdown-preview pre.line-numbers {
+        position: relative;
+        padding-left: 3.8em;
+        counter-reset: linenumber;
+      }
+      .markdown-preview pre.line-numbers > code {
+        position: relative;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows {
+        position: absolute;
+        pointer-events: none;
+        top: 1em;
+        font-size: 100%;
+        left: 0;
+        width: 3em;
+        letter-spacing: -1px;
+        border-right: 1px solid #999;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span:before {
+        content: counter(linenumber);
+        color: #999;
+        display: block;
+        padding-right: 0.8em;
+        text-align: right;
+      }
+      .markdown-preview .mathjax-exps .MathJax_Display {
+        text-align: center !important;
+      }
+      .markdown-preview:not([data-for="preview"])
+        .code-chunk
+        .code-chunk-btn-group {
+        display: none;
+      }
+      .markdown-preview:not([data-for="preview"]) .code-chunk .status {
+        display: none;
+      }
+      .markdown-preview:not([data-for="preview"]) .code-chunk .output-div {
+        margin-bottom: 16px;
+      }
+      .markdown-preview .md-toc {
+        padding: 0;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link {
+        display: inline;
+        padding: 0.25rem 0;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p {
+        display: inline;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link {
+        font-weight: 800;
+      }
+      .scrollbar-style::-webkit-scrollbar {
+        width: 8px;
+      }
+      .scrollbar-style::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      .scrollbar-style::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html body[for="html-export"]:not([data-presentation-mode]) {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode])
+        .markdown-preview {
+        position: relative;
+        top: 0;
+        min-height: 100vh;
+      }
+      @media screen and (min-width: 914px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em calc(50% - 457px + 2em);
+        }
+      }
+      @media screen and (max-width: 914px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          font-size: 14px !important;
+          padding: 1em;
+        }
+      }
+      @media print {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          #sidebar-toc-btn {
+          display: none;
+        }
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode])
+        #sidebar-toc-btn {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        font-size: 28px;
+        cursor: pointer;
+        color: inherit;
+        z-index: 99;
+        width: 32px;
+        text-align: center;
+        opacity: 0.4;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        #sidebar-toc-btn {
+        opacity: 1;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        padding: 32px 0 48px 0;
+        font-size: 14px;
+        box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+        box-sizing: border-box;
+        overflow: auto;
+        background-color: inherit;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar {
+        width: 8px;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        a {
+        text-decoration: none;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc {
+        padding: 0 16px;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link {
+        display: inline;
+        padding: 0.25rem 0;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link
+        div,
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link
+        p {
+        display: inline;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper.highlighted
+        .md-toc-link {
+        font-weight: 800;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .markdown-preview {
+        left: 300px;
+        width: calc(100% - 300px);
+        padding: 2em calc(50% - 457px - 300px / 2);
+        margin: 0;
+        box-sizing: border-box;
+      }
+      @media screen and (max-width: 1274px) {
+        html
+          body[for="html-export"]:not(
+            [data-presentation-mode]
+          )[html-show-sidebar-toc]
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for="html-export"]:not(
+            [data-presentation-mode]
+          )[html-show-sidebar-toc]
+          .markdown-preview {
+          width: 100%;
+        }
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode]):not(
+          [html-show-sidebar-toc]
+        )
+        .markdown-preview {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode]):not(
+          [html-show-sidebar-toc]
+        )
+        .md-sidebar-toc {
+        display: none;
+      }
+      /* Please visit the URL below for more information: */
+      /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+    </style>
+    <!-- The content below will be included at the end of the <head> element. -->
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        // your code here
+      });
+    </script>
+  </head>
+  <body for="html-export">
+    <div class="crossnote markdown-preview">
+      <h1 id="hit15-web-private-2024---week-3">
+        HIT15-WEB-PRIVATE-2024 - WEEK 3
+      </h1>
+      <hr />
+      <h2 id="homereadmehtml"><a href="../README.html">Home</a></h2>
+      <hr />
+      <h2 id="nội-dung">Nội dung</h2>
+      <h3 id="i-giới-thiệu-cssi-giới-thiệu-css">
+        <a href="#i-gi%E1%BB%9Bi-thi%E1%BB%87u-css">I. Giới thiệu CSS</a>
+      </h3>
+      <h3 id="ii-comment-trong-cssii-comment-trong-css">
+        <a href="#ii-comment-trong-css">II. Comment trong CSS</a>
+      </h3>
+      <h3 id="iii-các-cách-style-trang-web-iii-các-cách-style-trang-web">
+        <a href="#iii-c%C3%A1c-c%C3%A1ch-style-trang-web"
+          >III. Các cách style trang web
+        </a>
+      </h3>
+      <h3 id="iv-viết-css-như-thế-nàoiv-viết-css-như-thế-nào">
+        <a href="#iv-vi%E1%BA%BFt-css-nh%C6%B0-th%E1%BA%BF-n%C3%A0o"
+          >IV. Viết CSS như thế nào?</a
+        >
+      </h3>
+      <h3 id="v-các-thuộc-tính-css-cơ-bảnv-các-thuộc-tính-css-cơ-bản">
+        <a href="#v-c%C3%A1c-thu%E1%BB%99c-t%C3%ADnh-css-c%C6%A1-b%E1%BA%A3n"
+          >V. Các thuộc tính CSS cơ bản</a
+        >
+      </h3>
+      <h3 id="vi-reset-cssv-reset-css">
+        <a href="#v-reset-css">VI. Reset CSS</a>
+      </h3>
+      <hr />
+      <h2 id="i-giới-thiệu-css">I. Giới thiệu CSS</h2>
+      <ul>
+        <li>
+          CSS (Cascading Style Sheets) là ngôn ngữ dùng để mô tả cách hiển thị
+          của các phần tử HTML trên trang web.
+        </li>
+        <li>
+          Nó quyết định về bố cục, màu sắc, kiểu chữ, kích thước, khoảng cách
+          giữa các phần tử, v.v. CSS giúp trang web trông trực quan và dễ nhìn
+          hơn.
+        </li>
+      </ul>
+      <h2 id="ii-comment-trong-css">II. Comment trong CSS</h2>
+      <ul>
+        <li>
+          <p>Comments giúp ghi chú mã và được trình duyệt bỏ qua</p>
+        </li>
+        <li>
+          <p>
+            Comment 1 dòng hoặc nhiều dòng: <code>/* ........ */</code> hoặc
+            nhấn <strong>Ctrl + /</strong>
+          </p>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token comment">/* Đây là một comment trong CSS */</span>
+</code></pre>
+      <h2 id="iii-các-cách-style-trang-web">III. Các cách style trang web</h2>
+      <p>Có 3 cách để áp dụng style vào trang web</p>
+      <h3 id="1-inline-css">1. Inline CSS</h3>
+      <ul>
+        <li>Được viết trực tiếp trong thuộc tính style của thẻ HTML.</li>
+        <li>
+          Cách này tiện lợi cho các chỉnh sửa nhỏ và nhanh, nhưng không tối ưu
+          cho dự án lớn.
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="html"
+        class="language-html html"
+      ><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>Văn bản này có màu đỏ.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p><img src="./image/inline-css.png" alt="alt text" /></p>
+      <h3 id="2-internal-css">2. Internal CSS</h3>
+      <ul>
+        <li>
+          Được viết trong thẻ <code>&lt;style&gt;</code> bên trong phần
+          <code>&lt;head&gt;</code> của trang HTML.
+        </li>
+        <li>
+          Cách này tiện lợi cho các trang HTML đơn giản khi chỉ có một tệp HTML.
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="html"
+        class="language-html html"
+      ><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+    <span class="token selector">p</span> <span class="token punctuation">{</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p><img src="./image/internal-css.png" alt="alt text" /></p>
+      <h3 id="3-external-css">3. External CSS</h3>
+      <p>
+        Được liên kết thông qua một file CSS riêng biệt, giúp quản lý CSS dễ
+        dàng hơn:<br />
+        Lúc này bạn sử dụng thẻ <code>link</code> đặt trong phần
+        <code>head</code>, với giá trị của thuộc tính <code>href</code> là đường
+        dẫn tới file <code>style.css</code>
+      </p>
+      <pre
+        data-role="codeBlock"
+        data-info="html"
+        class="language-html html"
+      ><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>style.css<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p>Trong file style.css:</p>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">green</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <p><img src="./image/external-css.png" alt="alt text" /></p>
+      <h3 id="iv-viết-css-như-thế-nào">IV. Viết CSS như thế nào</h3>
+      <p>Ở nội dung tuần này chúng ta sẽ đi qua các viết css cơ bản nhé</p>
+      <ul>
+        <li>
+          <p>Ta có file HTML như sau:</p>
+          <pre
+            data-role="codeBlock"
+            data-info="html"
+            class="language-html html"
+          ><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Trang mẫu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>style.css<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Đây là một đoạn văn bản có màu xanh và kích thước 20px.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+          <p>
+            ❗❗❗ CSS được viết trong cặp thẻ <code>style</code> hoặc viết
+            trong file <code>style.css</code>
+          </p>
+        </li>
+        <li>
+          <p>
+            Bước 1: Chọn 1 phần tử bạn cần style<br />
+            Nhìn đoạn html trên, tôi muốn style cho thẻ <code>p</code>. Tôi sẽ
+            chọn thẻ <code>p</code>
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code>    p
+</code></pre>
+        </li>
+        <li>
+          <p>
+            Bước 2: Mở ngoặc nhọn <code>{ }</code> cho khối quy tắc CSS<br />
+            Tiếp theo, mỗi quy tắc CSS được đặt trong một cặp ngoặc nhọn
+            <code>{ }</code>. Bên trong ngoặc nhọn, bạn sẽ định nghĩa các thuộc
+            tính để định dạng cho phần tử được chọn.
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Các thuộc tính sẽ được viết ở đây */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p>
+            Bước 3: Thêm thuộc tính và giá trị<br />
+            Bên trong ngoặc nhọn, bạn sẽ khai báo các thuộc tính (properties) và
+            giá trị (values) tương ứng. Mỗi thuộc tính CSS xác định một phần của
+            định dạng và cần có một giá trị đi kèm:
+          </p>
+          <ul>
+            <li>
+              <code>color</code>: Đây là thuộc tính đặt màu cho văn bản của phần
+              tử. Trong ví dụ này, bạn gán <code>blue</code> làm giá trị để đặt
+              màu chữ là màu xanh.
+              <pre
+                data-role="codeBlock"
+                data-info="css"
+                class="language-css css"
+              ><code><span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+</code></pre>
+            </li>
+            <li>
+              <code>font-size</code>: Thuộc tính này xác định kích thước văn
+              bản. Bạn đặt <code>20px</code>làm giá trị để làm cho kích thước
+              chữ của phần tử <code>p</code> là 20px.
+              <pre
+                data-role="codeBlock"
+                data-info="css"
+                class="language-css css"
+              ><code><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+</code></pre>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        ❗Chú ý kết thúc mỗi thuộc tính bằng dấu chấm phẩy <code>;</code><br />
+        → Ta có kết quả sau:
+      </p>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <p><img src="./image/how-css.png" alt="alt text" /></p>
+      <h3 id="v-các-thuộc-tính-css-cơ-bản">V. Các thuộc tính CSS cơ bản</h3>
+      <h4 id="1-css-units-đơn-vị">1. CSS Units (Đơn vị)</h4>
+      <p>
+        CSS hỗ trợ nhiều đơn vị đo lường, bao gồm cả đơn vị tuyệt đối (cố định)
+        và tương đối (dựa vào phần tử hoặc màn hình).
+      </p>
+      <ul>
+        <li>
+          <p>
+            <strong>px (pixel)</strong>: Đơn vị cố định, biểu thị số pixel trên
+            màn hình. Thường được dùng khi bạn muốn kích thước chính xác, không
+            thay đổi theo kích thước màn hình hay phần tử cha
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">24</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p>
+            <strong>% (phần trăm)</strong>: Đơn vị tương đối, thường được dùng
+            để xác định kích thước tương đối so với phần tử cha.
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span> <span class="token comment">/* Chiếm 50% chiều rộng của phần tử cha */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p><strong>em</strong>:</p>
+          <ul>
+            <li>
+              Đơn vị tương đối, thường được dùng để xác định kích thước tương
+              đối so với phần tử cha trực tiếp
+            </li>
+            <li><code>1em = 100%</code> kích thước font của phần tử cha.</li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token comment">/* Phần tử cha có font-size là 16px */</span>
+<span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* Phần tử con sử dụng em, nên 1.5em sẽ là 1.5 * 16px = 24px */</span>
+<span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">1.5</span><span class="token unit">em</span><span class="token punctuation">;</span> <span class="token comment">/* Văn bản có kích thước 24px */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p><strong>rem</strong>:</p>
+          <ul>
+            <li>
+              Đơn vị tương đối nhưng dựa vào kích thước font của phần tử gốc
+              (html) thay vì phần tử cha trực tiếp.
+            </li>
+            <li>
+              <code>1rem = 100%</code> kích thước font của phần tử gốc (html).
+            </li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token comment">/* Thiết lập font-size của phần tử gốc là 16px */</span>
+<span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* Sử dụng rem, nên 1.5rem sẽ là 1.5 * 16px = 24px */</span>
+<span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">1.5</span><span class="token unit">rem</span><span class="token punctuation">;</span> <span class="token comment">/* Văn bản có kích thước 24px */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+      </ul>
+      <h4 id="2-css-backgrounds">2. CSS Backgrounds</h4>
+      <ul>
+        <li>
+          <p>Các thuộc tính CSS Background tác động tới nền của phần tử</p>
+        </li>
+        <li>
+          <p><strong>background-color</strong>: Đặt màu nền cho phần tử.</p>
+        </li>
+        <li>
+          <p><strong>background-image</strong>: Sử dụng ảnh làm nền.</p>
+        </li>
+        <li>
+          <p>
+            <strong>background-repeat</strong>: Xác định cách lặp lại ảnh nền.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>background-size</strong>: Đặt kích thước ảnh nền.<br />
+            Các giá trị phổ biến gồm:
+          </p>
+          <ul>
+            <li><code>cover</code> (phủ kín)</li>
+            <li><code>contain</code> (hiển thị toàn bộ trong phần tử).</li>
+            <li>
+              2 giá trị chiều rộng và chiều cao: <code>100% 50%</code> hoặc
+              <code>300px 100px</code>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token color">lightblue</span><span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"image.jpg"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span> <span class="token comment">/* Không lặp lại ảnh nền */</span>
+  <span class="token property">background-size</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <ul>
+        <li>
+          Bên cạnh đó còn có các thuộc tính khác như:
+          <code>background-clip</code>, <code>background-attachment</code>,
+          <code>background-position</code>
+        </li>
+        <li>
+          Nguồn chi tiết hơn: 👉
+          <a href="https://www.w3schools.com/cssref/css3_pr_background.php"
+            >Ở đây!</a
+          >
+        </li>
+      </ul>
+      <h4 id="3-css-color">3. CSS Color</h4>
+      <ul>
+        <li>
+          <p>
+            <strong>color</strong>: Quy định màu cho văn bản. Có thể sử dụng tên
+            màu, mã màu HEX, mã RGB hoặc mã HSL.
+          </p>
+          <ul>
+            <li>Tên màu (e.g., red, blue).</li>
+            <li>Mã màu HEX (e.g., #ff0000).</li>
+            <li>Mã màu RGB (e.g., rgb(255,0,0)).</li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#3498db</span><span class="token punctuation">;</span> <span class="token comment">/* Màu xanh dương */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+      </ul>
+      <h4 id="4-css-border">4. CSS Border</h4>
+      <ul>
+        <li>
+          <p>Border là viền bao quanh phần tử, bao gồm ba thành phần:</p>
+        </li>
+        <li>
+          <p><strong>border-width</strong>: Độ dày của viền (px, em, rem).</p>
+        </li>
+        <li>
+          <p>
+            <strong>border-style</strong>: Kiểu viền (solid, dashed, dotted,
+            double).
+          </p>
+        </li>
+        <li>
+          <p><strong>border-color</strong>: Màu viền.</p>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span>
+  <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <ul>
+        <li><strong>Cú pháp short hand</strong>:</li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span> solid <span class="token color">red</span><span class="token punctuation">;</span> <span class="token comment">/* Viền dày 2px, kiểu solid và màu đỏ */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <ul>
+        <li><strong>border-radius</strong>: Tạo bo góc cho viền.</li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span> solid <span class="token color">red</span><span class="token punctuation">;</span> <span class="token comment">/* Viền dày 2px, kiểu solid và màu đỏ */</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <ul>
+        <li>
+          Nguồn chi tiết hơn: 👉
+          <a href="https://www.w3schools.com/css/css_border.asp">Ở đây!</a>
+        </li>
+      </ul>
+      <h4 id="5-css-text">5. CSS Text</h4>
+      <ul>
+        <li>
+          <p>
+            Các thuộc tính về văn bản giúp kiểm soát định dạng và căn chỉnh chữ.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>text-align</strong>: Căn lề văn bản (left, right, center,
+            justify).
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>text-transform</strong>: Biến đổi kiểu chữ (uppercase,
+            lowercase, capitalize).
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>text-decoration</strong>: Định dạng gạch chân, gạch ngang,
+            bỏ gạch chân (underline, line-through, none).
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment">/* Căn giữa văn bản */</span>
+  <span class="token property">text-transform</span><span class="token punctuation">:</span> uppercase<span class="token punctuation">;</span> <span class="token comment">/* In hoa toàn bộ văn bản */</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> line-through<span class="token punctuation">;</span> <span class="token comment">/* Gạch ngang */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p>
+            Nguồn chi tiết hơn: 👉
+            <a href="https://www.w3schools.com/css/css_text.asp">Ở đây!</a>
+          </p>
+        </li>
+      </ul>
+      <h4 id="6-css-font">6. CSS Font</h4>
+      <ul>
+        <li>
+          <p>Thuộc tính font điều chỉnh kiểu chữ của văn bản.</p>
+        </li>
+        <li>
+          <p><strong>font-family</strong>: Đặt font chữ cho văn bản.</p>
+        </li>
+        <li>
+          <p>
+            <strong>font-size</strong>: Kích thước font, có thể dùng đơn vị px,
+            em, rem, %.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>font-weight</strong>: Độ đậm của chữ (normal, bold, hoặc giá
+            trị số từ 100 đến 900).
+          </p>
+        </li>
+        <li>
+          <p><strong>font-style</strong>: Kiểu chữ (italic, normal)</p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"Arial"</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span> <span class="token comment">/* Font Arial, và sans-serif dự phòng */</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">24</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span> <span class="token comment">/* Đậm chữ */</span>
+  <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span> <span class="token comment">/* Chữ nghiêng */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p>
+            Nguồn chi tiết hơn: 👉
+            <a href="https://www.w3schools.com/css/css_font.asp">Ở đây!</a>
+          </p>
+        </li>
+      </ul>
+      <h4 id="7-width-height">7. Width, Height</h4>
+      <ul>
+        <li>
+          <p>Được sử dụng để tùy chỉnh chiều rộng hoặc chiều cao cho phần tử</p>
+        </li>
+        <li>
+          <p><strong>width</strong>: Chiều rộng của phần tử.</p>
+        </li>
+        <li>
+          <p><strong>height</strong>: Chiều cao của phần tử.</p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p>
+            <strong>max-width</strong>/ <strong>max-height</strong>: Set chiều
+            rộng/ chiều cao tối đa
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>min-width</strong>/ <strong>min-height</strong>: Set chiều
+            rộng/ chiều cao tối thiểu
+          </p>
+        </li>
+        <li>
+          <p>
+            Nguồn chi tiết hơn: 👉
+            <a href="https://www.w3schools.com/css/css_dimension.asp">Ở đây!</a>
+          </p>
+        </li>
+      </ul>
+      <h4 id="8-box-model">8. Box Model</h4>
+      <ul>
+        <li>
+          <p>
+            Bất kỳ phần tử HTML nào của trang web đều được trình duyệt thể hiện
+            dưới dạng một hình hộp chữ nhật. Ngay cả khi bạn chèn hình tròn,
+            hình oval hay bo tròn các góc thì trình duyệt vẫn xem nó là một hình
+            chữ nhật. Hình hộp chữ nhật này gồm 4 thành phần:
+            <code>content</code>, <code>padding</code>, <code>border</code> và
+            <code>margin</code>. Và tất cả chúng tạo nên cấu trúc Box model.<br />
+            → <code>Box Model</code> là một tập các quy tắc và công thức cộng
+            trừ để giúp browser xác định được chiều rộng, cao (và một số thứ
+            khác) của một element.<br />
+            <img src="./image/box-modal.png" alt="box-modal" />
+          </p>
+          <ul>
+            <li>
+              <strong>Content</strong>: Là nội dung chính của phần tử, nơi chứa
+              văn bản hoặc hình ảnh.
+            </li>
+            <li>
+              <strong>Padding</strong>: Khoảng cách bên trong giữa content và
+              border, tạo không gian xung quanh nội dung.
+            </li>
+            <li>
+              <strong>Border</strong>: Đường viền bao quanh phần tử, nằm giữa
+              padding và margin.
+            </li>
+            <li>
+              <strong>Margin</strong>: Khoảng cách bên ngoài giữa phần tử này và
+              các phần tử khác, là phần ngoài cùng trong Box Model.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info=""
+        class="language-text"
+      ><code>Tổng chiều rộng = content width + padding left + padding right + border left + border right + margin left + margin right
+Tổng chiều cao = content height + padding top + padding bottom + border top + border bottom + margin top + margin bottom
+</code></pre>
+      <ul>
+        <li>
+          Khi sử dụng thuộc tính <code>box-sizing: border-box;</code> sẽ giúp
+          bạn tránh việc phần tử mở rộng kích thước ngoài mong muốn vì nó đã
+          tính cả <code>padding</code> và <code>border</code> vào
+          <code>width</code> và <code>height</code>
+        </li>
+      </ul>
+      <p>
+        <strong>Ví dụ minh họa</strong><br />
+        Giả sử bạn có một phần tử <code>&lt;div&gt;</code> và muốn nó có
+        <code>width</code> là <code>200px</code> và <code>height</code> là
+        <code>100px</code>, với <code>padding</code> là <code>20px</code> và
+        <code>border</code> là <code>5px</code>.
+      </p>
+      <ul>
+        <li>
+          <p>
+            Trường hợp 1: Không dùng <code>box-sizing: border-box</code>; (giá
+            trị mặc định là <code>content-box</code>)
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span> solid <span class="token color">black</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+          <p>Trong trường hợp này:</p>
+          <ul>
+            <li>
+              <code>width</code>: <code>200px</code> và <code>height</code>:
+              <code>100px</code> chỉ áp dụng cho phần content.
+            </li>
+            <li>
+              Kích thước tổng cộng của phần tử sẽ là:
+              <ul>
+                <li>
+                  Chiều rộng: <code>200px</code> (content) +
+                  <code>20px*2</code> (padding trái và phải) +
+                  <code>5px*2</code> (border trái và phải) = <code>250px</code>
+                </li>
+                <li>
+                  Chiều cao: <code>100px</code> (content) +
+                  <code>20px*2</code> (padding trên và dưới) +
+                  <code>5px*2</code> (border trên và dưới) = <code>150px</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            =&gt; Phần tử sẽ chiếm kích thước tổng cộng là
+            <code>250px x 150px</code>.
+          </p>
+        </li>
+        <li>
+          <p>Trường hợp 2: Dùng <code>box-sizing: border-box</code>;</p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span> solid <span class="token color">black</span><span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+          <p>Trong trường hợp này:</p>
+          <ul>
+            <li>
+              <code>width</code>: <code>200px</code> và <code>height</code>:
+              <code>100px</code> sẽ bao gồm cả <code>padding</code> và
+              <code>border</code>.
+            </li>
+            <li>
+              Kích thước tổng cộng sẽ chính xác là <code>200px x 100px</code>
+            </li>
+          </ul>
+          <p>
+            =&gt; Điều này xảy ra vì trình duyệt sẽ tự điều chỉnh phần content
+            bên trong để phù hợp với tổng kích thước <code>200px x 100px</code>.
+          </p>
+        </li>
+      </ul>
+      <h4 id="9-padding-margin">9. Padding, Margin</h4>
+      <h5 id="91-padding">9.1. Padding</h5>
+      <ul>
+        <li>
+          <p>
+            Padding là khoảng cách bên trong giữa nội dung (content) và đường
+            viền (border) của phần tử.
+          </p>
+        </li>
+        <li>
+          <p>
+            Padding giúp tạo không gian trống xung quanh nội dung bên trong phần
+            tử, giúp nội dung không dính sát với border.
+          </p>
+        </li>
+        <li>
+          <p>Các thuộc tính của Padding</p>
+          <ul>
+            <li>
+              <code>padding-top</code>: Tạo khoảng cách ở phía trên nội dung.
+            </li>
+            <li>
+              <code>padding-right</code>: Tạo khoảng cách ở bên phải nội dung.
+            </li>
+            <li>
+              <code>padding-bottom</code>: Tạo khoảng cách ở phía dưới nội dung.
+            </li>
+            <li>
+              <code>padding-left</code>: Tạo khoảng cách ở bên trái nội dung.
+            </li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">padding-top</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">padding-right</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">padding-bottom</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p>Cú pháp viết tắt Shorthand</p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token comment">/* Padding đều 4 cạnh */</span>
+<span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Padding: top &amp; bottom - 10px, left &amp; right - 15px */</span>
+<span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">15</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Padding: top - 10px, right &amp; left - 15px, bottom - 20px */</span>
+<span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Padding: top - 10px, right - 15px, bottom - 20px, left - 25px */</span>
+<span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span> <span class="token number">25</span><span class="token unit">px</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+      </ul>
+      <h5 id="92-margin">9.2. Margin</h5>
+      <ul>
+        <li>
+          <p>
+            Margin là khoảng cách bên ngoài giữa phần tử và các phần tử khác.
+          </p>
+        </li>
+        <li>
+          <p>
+            Margin giúp tạo không gian trống xung quanh phần tử, cách ly phần tử
+            này với các phần tử khác.
+          </p>
+        </li>
+        <li>
+          <p>Các thuộc tính của Margin</p>
+          <ul>
+            <li>
+              <code>margin-top</code>: Tạo khoảng cách ở phía trên phần tử.
+            </li>
+            <li>
+              <code>margin-right</code>: Tạo khoảng cách ở bên phải phần tử.
+            </li>
+            <li>
+              <code>margin-bottom</code>: Tạo khoảng cách ở phía dưới phần tử.
+            </li>
+            <li>
+              <code>margin-left</code>: Tạo khoảng cách ở bên trái phần tử.
+            </li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+        <li>
+          <p>Cú pháp viết tắt Shorthand</p>
+          <pre
+            data-role="codeBlock"
+            data-info="css"
+            class="language-css css"
+          ><code><span class="token comment">/* Margin đều 4 cạnh */</span>
+<span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Margin: top &amp; bottom - 10px, left &amp; right - 15px */</span>
+<span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">15</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Margin: top - 10px, right &amp; left - 15px, bottom - 20px */</span>
+<span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Margin: top - 10px, right - 15px, bottom - 20px, left - 25px */</span>
+<span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span> <span class="token number">25</span><span class="token unit">px</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+      </ul>
+      <h4 id="10-display-block-inline-inline-block">
+        10. Display, Block, Inline, Inline-block
+      </h4>
+      <ul>
+        <li>
+          <p>
+            Những thuộc tính này quyết định cách các phần tử HTML hiển thị trên
+            trang web
+          </p>
+        </li>
+        <li>
+          <p>Các giá trị phổ biến của <code>display</code></p>
+          <h5>a. <code>block</code></h5>
+        </li>
+        <li>
+          <p>
+            Là các phần tử hiển thị theo dạng khối, chiếm toàn bộ chiều ngang
+            của trang (100% chiều rộng), đẩy các phần tử khác xuống hàng mới.
+          </p>
+        </li>
+        <li>
+          <p>
+            Các phần tử block tự động bắt đầu trên một dòng mới và có thể điều
+            chỉnh chiều rộng và chiều cao
+          </p>
+        </li>
+        <li>
+          <p>
+            Một số thẻ HTML mặc định hiển thị dạng block:
+            <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>,
+            <code>&lt;h1&gt;</code>, <code>&lt;ul&gt;</code>,
+            <code>&lt;li&gt;</code>, v.v.<br />
+            <img src="./image/block.png" alt="block" />
+          </p>
+          <h5>b. <code>inline</code></h5>
+        </li>
+        <li>
+          <p>
+            Không bắt đầu dòng mới, không chiếm toàn bộ chiều ngang mà chỉ chiếm
+            không gian cần thiết vừa đủ với nội dung của nó.
+          </p>
+        </li>
+        <li>
+          <p>
+            Các phần tử inline không bắt đầu trên một dòng mới và sẽ nằm cùng
+            dòng với các phần tử khác.
+          </p>
+        </li>
+        <li>
+          <p>
+            Một số thẻ HTML mặc định là inline: <code>&lt;span&gt;</code>,
+            <code>&lt;a&gt;</code>
+          </p>
+        </li>
+        <li>
+          <p>Không thể thay đổi <code>width</code> và <code>height</code></p>
+        </li>
+        <li>
+          <p>
+            Chỉ có thể áp dụng <code>padding</code>, <code>margin</code> theo
+            chiều ngang (trái và phải) chứ không phải chiều dọc (trên và
+            dưới).<br />
+            <img src="./image/inline.png" alt="block" />
+          </p>
+          <h5>c. <code>inline-block</code>:</h5>
+        </li>
+        <li>
+          <p>
+            Kết hợp đặc điểm của cả block và inline. Các phần tử inline-block
+            hiển thị theo hàng với nội dung khác (như inline) nhưng vẫn có thể
+            điều chỉnh kích thước (width và height) như block.
+          </p>
+        </li>
+        <li>
+          <p>
+            Chiếm không gian vừa đủ cho nội dung, nhưng có thể điều chỉnh width
+            và height.
+          </p>
+        </li>
+        <li>
+          <p>
+            Có thể áp dụng padding, margin, và border cho cả chiều ngang và
+            chiều dọc.<br />
+            <img src="./image/inline-block.png" alt="block" />
+          </p>
+        </li>
+      </ul>
+      <h3 id="vi-reset-css">VI. Reset CSS</h3>
+      <p>
+        Reset CSS đặt lại các giá trị mặc định của trình duyệt cho các phần tử
+        (như khoảng cách <code>margin</code>, <code>padding</code>,
+        <code>font-size</code>,...), giúp tăng tính nhất quán khi hiển thị trên
+        các trình duyệt khác nhau.
+      </p>
+      <pre
+        data-role="codeBlock"
+        data-info="css"
+        class="language-css css"
+      ><code><span class="token selector">*</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Xóa margin, padding và border mặc định */</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+    </div>
+  </body>
+</html>
