@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Week 10</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="file:///c:\Users\Admin\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.15\crossnote\dependencies\katex\katex.min.css"
+    />
+
+    <style>
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #333;
+        background: 0 0;
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.4;
+        -moz-tab-size: 8;
+        -o-tab-size: 8;
+        tab-size: 8;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+      pre[class*="language-"] {
+        padding: 0.8em;
+        overflow: auto;
+        border-radius: 3px;
+        background: #f5f5f5;
+      }
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+        background: #f5f5f5;
+      }
+      .token.blockquote,
+      .token.comment {
+        color: #969896;
+      }
+      .token.cdata {
+        color: #183691;
+      }
+      .token.doctype,
+      .token.macro.property,
+      .token.punctuation,
+      .token.variable {
+        color: #333;
+      }
+      .token.builtin,
+      .token.important,
+      .token.keyword,
+      .token.operator,
+      .token.rule {
+        color: #a71d5d;
+      }
+      .token.attr-value,
+      .token.regex,
+      .token.string,
+      .token.url {
+        color: #183691;
+      }
+      .token.atrule,
+      .token.boolean,
+      .token.code,
+      .token.command,
+      .token.constant,
+      .token.entity,
+      .token.number,
+      .token.property,
+      .token.symbol {
+        color: #0086b3;
+      }
+      .token.prolog,
+      .token.selector,
+      .token.tag {
+        color: #63a35c;
+      }
+      .token.attr-name,
+      .token.class,
+      .token.class-name,
+      .token.function,
+      .token.id,
+      .token.namespace,
+      .token.pseudo-class,
+      .token.pseudo-element,
+      .token.url-reference .token.variable {
+        color: #795da3;
+      }
+      .token.entity {
+        cursor: help;
+      }
+      .token.title,
+      .token.title .token.punctuation {
+        font-weight: 700;
+        color: #1d3e81;
+      }
+      .token.list {
+        color: #ed6a43;
+      }
+      .token.inserted {
+        background-color: #eaffea;
+        color: #55a532;
+      }
+      .token.deleted {
+        background-color: #ffecec;
+        color: #bd2c00;
+      }
+      .token.bold {
+        font-weight: 700;
+      }
+      .token.italic {
+        font-style: italic;
+      }
+      .language-json .token.property {
+        color: #183691;
+      }
+      .language-markup .token.tag .token.punctuation {
+        color: #333;
+      }
+      .language-css .token.function,
+      code.language-css {
+        color: #0086b3;
+      }
+      .language-yaml .token.atrule {
+        color: #63a35c;
+      }
+      code.language-yaml {
+        color: #183691;
+      }
+      .language-ruby .token.function {
+        color: #333;
+      }
+      .language-markdown .token.url {
+        color: #795da3;
+      }
+      .language-makefile .token.symbol {
+        color: #795da3;
+      }
+      .language-makefile .token.variable {
+        color: #183691;
+      }
+      .language-makefile .token.builtin {
+        color: #0086b3;
+      }
+      .language-bash .token.keyword {
+        color: #0086b3;
+      }
+      pre[data-line] {
+        position: relative;
+        padding: 1em 0 1em 3em;
+      }
+      pre[data-line] .line-highlight-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+      }
+      pre[data-line] .line-highlight {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: inherit 0;
+        margin-top: 1em;
+        background: hsla(24, 20%, 50%, 0.08);
+        background: linear-gradient(
+          to right,
+          hsla(24, 20%, 50%, 0.1) 70%,
+          hsla(24, 20%, 50%, 0)
+        );
+        pointer-events: none;
+        line-height: inherit;
+        white-space: pre;
+      }
+      pre[data-line] .line-highlight:before,
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-start);
+        position: absolute;
+        top: 0.4em;
+        left: 0.6em;
+        min-width: 1em;
+        padding: 0 0.5em;
+        background-color: hsla(24, 20%, 50%, 0.4);
+        color: #f4f1ef;
+        font: bold 65%/1.5 sans-serif;
+        text-align: center;
+        vertical-align: 0.3em;
+        border-radius: 999px;
+        text-shadow: none;
+        box-shadow: 0 1px #fff;
+      }
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-end);
+        top: auto;
+        bottom: 0.4em;
+      }
+      html body {
+        font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans,
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        overflow: initial;
+        box-sizing: border-box;
+        word-wrap: break-word;
+      }
+      html body > :first-child {
+        margin-top: 0;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        line-height: 1.2;
+        margin-top: 1em;
+        margin-bottom: 16px;
+        color: #000;
+      }
+      html body h1 {
+        font-size: 2.25em;
+        font-weight: 300;
+        padding-bottom: 0.3em;
+      }
+      html body h2 {
+        font-size: 1.75em;
+        font-weight: 400;
+        padding-bottom: 0.3em;
+      }
+      html body h3 {
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+      html body h4 {
+        font-size: 1.25em;
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+      html body h6 {
+        font-size: 1em;
+        font-weight: 600;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5 {
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1em;
+      }
+      html body h6 {
+        color: #5c5c5c;
+      }
+      html body strong {
+        color: #000;
+      }
+      html body del {
+        color: #5c5c5c;
+      }
+      html body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      html body a {
+        color: #08c;
+        text-decoration: none;
+      }
+      html body a:hover {
+        color: #00a3f5;
+        text-decoration: none;
+      }
+      html body img {
+        max-width: 100%;
+      }
+      html body > p {
+        margin-top: 0;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+      }
+      html body > ol,
+      html body > ul {
+        margin-bottom: 16px;
+      }
+      html body ol,
+      html body ul {
+        padding-left: 2em;
+      }
+      html body ol.no-list,
+      html body ul.no-list {
+        padding: 0;
+        list-style-type: none;
+      }
+      html body ol ol,
+      html body ol ul,
+      html body ul ol,
+      html body ul ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body li {
+        margin-bottom: 0;
+      }
+      html body li.task-list-item {
+        list-style: none;
+      }
+      html body li > p {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body .task-list-item-checkbox {
+        margin: 0 0.2em 0.25em -1.8em;
+        vertical-align: middle;
+      }
+      html body .task-list-item-checkbox:hover {
+        cursor: pointer;
+      }
+      html body blockquote {
+        margin: 16px 0;
+        font-size: inherit;
+        padding: 0 15px;
+        color: #5c5c5c;
+        background-color: #f0f0f0;
+        border-left: 4px solid #d6d6d6;
+      }
+      html body blockquote > :first-child {
+        margin-top: 0;
+      }
+      html body blockquote > :last-child {
+        margin-bottom: 0;
+      }
+      html body hr {
+        height: 4px;
+        margin: 32px 0;
+        background-color: #d6d6d6;
+        border: 0 none;
+      }
+      html body table {
+        margin: 10px 0 15px 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: block;
+        width: 100%;
+        overflow: auto;
+        word-break: normal;
+        word-break: keep-all;
+      }
+      html body table th {
+        font-weight: 700;
+        color: #000;
+      }
+      html body table td,
+      html body table th {
+        border: 1px solid #d6d6d6;
+        padding: 6px 13px;
+      }
+      html body dl {
+        padding: 0;
+      }
+      html body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 700;
+      }
+      html body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      html body code {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        font-size: 0.85em;
+        color: #000;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+        padding: 0.2em 0;
+      }
+      html body code::after,
+      html body code::before {
+        letter-spacing: -0.2em;
+        content: "\00a0";
+      }
+      html body pre > code {
+        padding: 0;
+        margin: 0;
+        word-break: normal;
+        white-space: pre;
+        background: 0 0;
+        border: 0;
+      }
+      html body .highlight {
+        margin-bottom: 16px;
+      }
+      html body .highlight pre,
+      html body pre {
+        padding: 1em;
+        overflow: auto;
+        line-height: 1.45;
+        border: #d6d6d6;
+        border-radius: 3px;
+      }
+      html body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      html body pre code,
+      html body pre tt {
+        display: inline;
+        max-width: initial;
+        padding: 0;
+        margin: 0;
+        overflow: initial;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      html body pre code:after,
+      html body pre code:before,
+      html body pre tt:after,
+      html body pre tt:before {
+        content: normal;
+      }
+      html body blockquote,
+      html body dl,
+      html body ol,
+      html body p,
+      html body pre,
+      html body ul {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      html body kbd {
+        color: #000;
+        border: 1px solid #d6d6d6;
+        border-bottom: 2px solid #c7c7c7;
+        padding: 2px 4px;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+      }
+      @media print {
+        html body {
+          background-color: #fff;
+        }
+        html body h1,
+        html body h2,
+        html body h3,
+        html body h4,
+        html body h5,
+        html body h6 {
+          color: #000;
+          page-break-after: avoid;
+        }
+        html body blockquote {
+          color: #5c5c5c;
+        }
+        html body pre {
+          page-break-inside: avoid;
+        }
+        html body table {
+          display: table;
+        }
+        html body img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        html body code,
+        html body pre {
+          word-wrap: break-word;
+          white-space: pre;
+        }
+      }
+      .markdown-preview {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .markdown-preview ul {
+        list-style: disc;
+      }
+      .markdown-preview ul ul {
+        list-style: circle;
+      }
+      .markdown-preview ul ul ul {
+        list-style: square;
+      }
+      .markdown-preview ol {
+        list-style: decimal;
+      }
+      .markdown-preview ol ol,
+      .markdown-preview ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-preview ol ol ol,
+      .markdown-preview ol ul ol,
+      .markdown-preview ul ol ol,
+      .markdown-preview ul ul ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-preview .newpage,
+      .markdown-preview .pagebreak {
+        page-break-before: always;
+      }
+      .markdown-preview pre.line-numbers {
+        position: relative;
+        padding-left: 3.8em;
+        counter-reset: linenumber;
+      }
+      .markdown-preview pre.line-numbers > code {
+        position: relative;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows {
+        position: absolute;
+        pointer-events: none;
+        top: 1em;
+        font-size: 100%;
+        left: 0;
+        width: 3em;
+        letter-spacing: -1px;
+        border-right: 1px solid #999;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span:before {
+        content: counter(linenumber);
+        color: #999;
+        display: block;
+        padding-right: 0.8em;
+        text-align: right;
+      }
+      .markdown-preview .mathjax-exps .MathJax_Display {
+        text-align: center !important;
+      }
+      .markdown-preview:not([data-for="preview"])
+        .code-chunk
+        .code-chunk-btn-group {
+        display: none;
+      }
+      .markdown-preview:not([data-for="preview"]) .code-chunk .status {
+        display: none;
+      }
+      .markdown-preview:not([data-for="preview"]) .code-chunk .output-div {
+        margin-bottom: 16px;
+      }
+      .markdown-preview .md-toc {
+        padding: 0;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link {
+        display: inline;
+        padding: 0.25rem 0;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p {
+        display: inline;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link {
+        font-weight: 800;
+      }
+      .scrollbar-style::-webkit-scrollbar {
+        width: 8px;
+      }
+      .scrollbar-style::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      .scrollbar-style::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html body[for="html-export"]:not([data-presentation-mode]) {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode])
+        .markdown-preview {
+        position: relative;
+        top: 0;
+        min-height: 100vh;
+      }
+      @media screen and (min-width: 914px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em calc(50% - 457px + 2em);
+        }
+      }
+      @media screen and (max-width: 914px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          font-size: 14px !important;
+          padding: 1em;
+        }
+      }
+      @media print {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          #sidebar-toc-btn {
+          display: none;
+        }
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode])
+        #sidebar-toc-btn {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        font-size: 28px;
+        cursor: pointer;
+        color: inherit;
+        z-index: 99;
+        width: 32px;
+        text-align: center;
+        opacity: 0.4;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        #sidebar-toc-btn {
+        opacity: 1;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        padding: 32px 0 48px 0;
+        font-size: 14px;
+        box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+        box-sizing: border-box;
+        overflow: auto;
+        background-color: inherit;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar {
+        width: 8px;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        a {
+        text-decoration: none;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc {
+        padding: 0 16px;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link {
+        display: inline;
+        padding: 0.25rem 0;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link
+        div,
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link
+        p {
+        display: inline;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper.highlighted
+        .md-toc-link {
+        font-weight: 800;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .markdown-preview {
+        left: 300px;
+        width: calc(100% - 300px);
+        padding: 2em calc(50% - 457px - 300px / 2);
+        margin: 0;
+        box-sizing: border-box;
+      }
+      @media screen and (max-width: 1274px) {
+        html
+          body[for="html-export"]:not(
+            [data-presentation-mode]
+          )[html-show-sidebar-toc]
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for="html-export"]:not(
+            [data-presentation-mode]
+          )[html-show-sidebar-toc]
+          .markdown-preview {
+          width: 100%;
+        }
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode]):not(
+          [html-show-sidebar-toc]
+        )
+        .markdown-preview {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode]):not(
+          [html-show-sidebar-toc]
+        )
+        .md-sidebar-toc {
+        display: none;
+      }
+      @font-face {
+        font-family: "Material Icons";
+        font-style: normal;
+        font-weight: 400;
+        src: local("Material Icons"), local("MaterialIcons-Regular"),
+          url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA")
+            format("woff");
+      }
+      .admonition {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+          0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        position: relative;
+        margin: 1.5625em 0;
+        padding: 0 1.2rem;
+        border-left: 0.4rem solid rgba(68, 138, 255, 0.8);
+        border-radius: 0.2rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        overflow: auto;
+      }
+      .admonition > p {
+        margin-top: 0.8rem;
+      }
+      .admonition > .admonition-title {
+        margin: 0 -1.2rem;
+        padding: 0.8rem 1.2rem 0.8rem 3.6rem;
+        border-bottom: 1px solid rgba(68, 138, 255, 0.2);
+        background-color: rgba(68, 138, 255, 0.1);
+        font-weight: 700;
+      }
+      .admonition > .admonition-title:before {
+        position: absolute;
+        left: 1.2rem;
+        font-size: 1.5rem;
+        color: rgba(68, 138, 255, 0.8);
+        content: "\E3C9";
+      }
+      .admonition > .admonition-title:before {
+        font-family: Material Icons;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        line-height: 2rem;
+        text-transform: none;
+        white-space: nowrap;
+        speak: none;
+        word-wrap: normal;
+        direction: ltr;
+      }
+      .admonition.abstract,
+      .admonition.summary,
+      .admonition.tldr {
+        border-left-color: rgba(0, 176, 255, 0.8);
+      }
+      .admonition.abstract > .admonition-title,
+      .admonition.summary > .admonition-title,
+      .admonition.tldr > .admonition-title {
+        background-color: rgba(0, 176, 255, 0.1);
+        border-bottom-color: rgba(0, 176, 255, 0.2);
+      }
+      .admonition.abstract > .admonition-title:before,
+      .admonition.summary > .admonition-title:before,
+      .admonition.tldr > .admonition-title:before {
+        color: #00b0ff;
+        content: "\E8D2";
+      }
+      .admonition.hint,
+      .admonition.tip {
+        border-left-color: rgba(0, 191, 165, 0.8);
+      }
+      .admonition.hint > .admonition-title,
+      .admonition.tip > .admonition-title {
+        background-color: rgba(0, 191, 165, 0.1);
+        border-bottom-color: rgba(0, 191, 165, 0.2);
+      }
+      .admonition.hint > .admonition-title:before,
+      .admonition.tip > .admonition-title:before {
+        color: #00bfa5;
+        content: "\E80E";
+      }
+      .admonition.info,
+      .admonition.todo {
+        border-left-color: rgba(0, 184, 212, 0.8);
+      }
+      .admonition.info > .admonition-title,
+      .admonition.todo > .admonition-title {
+        background-color: rgba(0, 184, 212, 0.1);
+        border-bottom-color: rgba(0, 184, 212, 0.2);
+      }
+      .admonition.info > .admonition-title:before,
+      .admonition.todo > .admonition-title:before {
+        color: #00b8d4;
+        content: "\E88E";
+      }
+      .admonition.check,
+      .admonition.done,
+      .admonition.success {
+        border-left-color: rgba(0, 200, 83, 0.8);
+      }
+      .admonition.check > .admonition-title,
+      .admonition.done > .admonition-title,
+      .admonition.success > .admonition-title {
+        background-color: rgba(0, 200, 83, 0.1);
+        border-bottom-color: rgba(0, 200, 83, 0.2);
+      }
+      .admonition.check > .admonition-title:before,
+      .admonition.done > .admonition-title:before,
+      .admonition.success > .admonition-title:before {
+        color: #00c853;
+        content: "\E876";
+      }
+      .admonition.faq,
+      .admonition.help,
+      .admonition.question {
+        border-left-color: rgba(100, 221, 23, 0.8);
+      }
+      .admonition.faq > .admonition-title,
+      .admonition.help > .admonition-title,
+      .admonition.question > .admonition-title {
+        background-color: rgba(100, 221, 23, 0.1);
+        border-bottom-color: rgba(100, 221, 23, 0.2);
+      }
+      .admonition.faq > .admonition-title:before,
+      .admonition.help > .admonition-title:before,
+      .admonition.question > .admonition-title:before {
+        color: #64dd17;
+        content: "\E887";
+      }
+      .admonition.attention,
+      .admonition.caution,
+      .admonition.warning {
+        border-left-color: rgba(255, 145, 0, 0.8);
+      }
+      .admonition.attention > .admonition-title,
+      .admonition.caution > .admonition-title,
+      .admonition.warning > .admonition-title {
+        background-color: rgba(255, 145, 0, 0.1);
+        border-bottom-color: rgba(255, 145, 0, 0.2);
+      }
+      .admonition.attention > .admonition-title:before {
+        color: #ff9100;
+        content: "\E417";
+      }
+      .admonition.caution > .admonition-title:before,
+      .admonition.warning > .admonition-title:before {
+        color: #ff9100;
+        content: "\E002";
+      }
+      .admonition.fail,
+      .admonition.failure,
+      .admonition.missing {
+        border-left-color: rgba(255, 82, 82, 0.8);
+      }
+      .admonition.fail > .admonition-title,
+      .admonition.failure > .admonition-title,
+      .admonition.missing > .admonition-title {
+        background-color: rgba(255, 82, 82, 0.1);
+        border-bottom-color: rgba(255, 82, 82, 0.2);
+      }
+      .admonition.fail > .admonition-title:before,
+      .admonition.failure > .admonition-title:before,
+      .admonition.missing > .admonition-title:before {
+        color: #ff5252;
+        content: "\E14C";
+      }
+      .admonition.bug,
+      .admonition.danger,
+      .admonition.error {
+        border-left-color: rgba(255, 23, 68, 0.8);
+      }
+      .admonition.bug > .admonition-title,
+      .admonition.danger > .admonition-title,
+      .admonition.error > .admonition-title {
+        background-color: rgba(255, 23, 68, 0.1);
+        border-bottom-color: rgba(255, 23, 68, 0.2);
+      }
+      .admonition.danger > .admonition-title:before {
+        color: #ff1744;
+        content: "\E3E7";
+      }
+      .admonition.error > .admonition-title:before {
+        color: #ff1744;
+        content: "\E14C";
+      }
+      .admonition.bug > .admonition-title:before {
+        color: #ff1744;
+        content: "\E868";
+      }
+      .admonition.example,
+      .admonition.snippet {
+        border-left-color: rgba(0, 184, 212, 0.8);
+      }
+      .admonition.example > .admonition-title,
+      .admonition.snippet > .admonition-title {
+        background-color: rgba(0, 184, 212, 0.1);
+        border-bottom-color: rgba(0, 184, 212, 0.2);
+      }
+      .admonition.example > .admonition-title:before,
+      .admonition.snippet > .admonition-title:before {
+        color: #00b8d4;
+        content: "\E242";
+      }
+      .admonition.cite,
+      .admonition.quote {
+        border-left-color: rgba(158, 158, 158, 0.8);
+      }
+      .admonition.cite > .admonition-title,
+      .admonition.quote > .admonition-title {
+        background-color: rgba(158, 158, 158, 0.1);
+        border-bottom-color: rgba(158, 158, 158, 0.2);
+      }
+      .admonition.cite > .admonition-title:before,
+      .admonition.quote > .admonition-title:before {
+        color: #9e9e9e;
+        content: "\E244";
+      }
+      /* Please visit the URL below for more information: */
+      /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+    </style>
+    <!-- The content below will be included at the end of the <head> element. -->
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        // your code here
+      });
+    </script>
+  </head>
+  <body for="html-export">
+    <div class="crossnote markdown-preview">
+      <h1 id="hit15-web-private-2024---week-10">
+        HIT15-WEB-PRIVATE-2024 - WEEK 10
+      </h1>
+      <hr />
+      <h2 id="homereadmehtml"><a href="../README.html">Home</a></h2>
+      <hr />
+      <h2 id="nội-dung">Nội dung</h2>
+      <h2 id="i-đôi-chút-về-javascripti-đôi-chút-về-javascript">
+        <a href="#i-%C4%91%C3%B4i-ch%C3%BAt-v%E1%BB%81-javascript"
+          >I. Đôi chút về Javascript</a
+        >
+      </h2>
+      <h2
+        id="ii-các-kiểu-dữ-liệu-trong-javascriptii-các-kiểu-dữ-liệu-trong-javascript"
+      >
+        <a
+          href="#ii-c%C3%A1c-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u-trong-javascript"
+          >II. Các kiểu dữ liệu trong Javascript</a
+        >
+      </h2>
+      <h2
+        id="iii-biến-và-khai-báo-biếniii-biến-và-từ-khóa-khai-báo-let-const-var"
+      >
+        <a
+          href="#iii-bi%E1%BA%BFn-v%C3%A0-t%E1%BB%AB-kh%C3%B3a-khai-b%C3%A1o-let-const-var"
+          >III. Biến và khai báo biến</a
+        >
+      </h2>
+      <h2 id="iv-hoisting-và-scopeiv-hoisting-và-scope">
+        <a href="#iv-hoisting-v%C3%A0-scope">IV. Hoisting và Scope</a>
+      </h2>
+      <h2 id="v-string-và-template-literalsv-string-và-template-literals">
+        <a href="#v-string-v%C3%A0-template-literals"
+          >V. String và Template Literals</a
+        >
+      </h2>
+      <h2 id="vi-toán-tử-operatorsvi-toán-tử-operators">
+        <a href="#vi-to%C3%A1n-t%E1%BB%AD-operators">VI. Toán tử (Operators)</a>
+      </h2>
+      <h2
+        id="vii-cấu-trúc-điều-kiện-if-else-switch-casevii-cấu-trúc-điều-kiện-if-else-switch-case"
+      >
+        <a
+          href="#vii-c%E1%BA%A5u-tr%C3%BAc-%C4%91i%E1%BB%81u-ki%E1%BB%87n-if-else-switch-case"
+          >VII. Cấu trúc điều kiện: if-else, switch case</a
+        >
+      </h2>
+      <h2 id="viii-vòng-lặp-for-whileviii-vòng-lặp-for-while">
+        <a href="#viii-v%C3%B2ng-l%E1%BA%B7p-for-while"
+          >VIII. Vòng lặp: for, while</a
+        >
+      </h2>
+      <hr />
+      <h2 id="i-đôi-chút-về-javascript">I. Đôi chút về Javascript</h2>
+      <h4 id="1-phần-đuổi-mở-rộng-của-file-javascript-là-js">
+        1. Phần đuổi mở rộng của file Javascript là <code>.js</code>
+      </h4>
+      <h4 id="2-đoạn-mã-javascript-đặt-ở-đâu">
+        2. Đoạn mã Javascript đặt ở đâu?
+      </h4>
+      <ul>
+        <li>
+          Các đoạn mã đặt trong thẻ <code>script</code> trong phần
+          <code>body</code>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="html"
+        class="language-html html"
+      ><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Hello, World!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Hello world~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <ul>
+        <li>Nếu là 1 file chứa các đoạn mã Javascript</li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="html"
+        class="language-html html"
+      ><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Hello, World!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token comment">&lt;!-- Liên kết file JavaScript --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>js/app.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <div class="admonition note">
+        <p class="admonition-title">
+          Lưu ý: Thẻ <code>script</code> nên đặt ở cuối file <code>html</code>,
+          trong <code>body</code> hoặc dưới <code>body</code>
+        </p>
+      </div>
+      <blockquote>
+        <p>
+          ❓ Tại sao nên link Javascript trong thẻ head hoặc body của HTML?<br />
+          Việc link JavaScript trong phần head hoặc body của HTML có ảnh hưởng
+          đến hiệu suất tải trang. Khi trình duyệt gặp một thẻ script, nó sẽ
+          dừng quá trình tải trang và thực thi mã JavaScript
+        </p>
+        <ul>
+          <li>
+            Nếu chúng ta đặt thẻ script trong phần head, trình duyệt sẽ phải tải
+            và thực thi mã JavaScript trước khi hiển thị nội dung trang web.
+          </li>
+          <li>
+            Trong khi đó, đặt thẻ script ở cuối phần body giúp trình duyệt tải
+            trang nhanh hơn đảm bảo trình duyệt tải và hiển thị nội dung trang
+            web trước khi thực thi mã JavaScript.
+          </li>
+        </ul>
+      </blockquote>
+      <h4 id="3-comment-trong-javascript">3. Comment trong Javascript</h4>
+      <ul>
+        <li>
+          Chú thích một dòng: sử dụng dấu gạch chéo <code>//</code>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token comment">// Đây là một comment một dòng</span>
+<span class="token keyword keyword-let">let</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// Biến x được gán giá trị 5</span>
+</code></pre>
+        </li>
+        <li>
+          Chú thích nhiều dòng: sử dụng dấu <code>/* */</code>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token comment">/* Đây là một comment nhiều dòng
+Chú thích này có thể bao gồm nhiều dòng
+giúp giải thích mã rõ ràng hơn */</span>
+<span class="token keyword keyword-let">let</span> y <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+      </ul>
+      <hr />
+      <h2 id="ii-các-kiểu-dữ-liệu-trong-javascript">
+        <strong>II. Các kiểu dữ liệu trong JavaScript</strong>
+      </h2>
+      <h4 id="1-kiểu-dữ-liệu-nguyên-thủy-primitive-types">
+        1. Kiểu dữ liệu nguyên thủy (Primitive Types):
+      </h4>
+      <ul>
+        <li>
+          <strong><code>Number</code></strong
+          >: Lưu trữ số nguyên, số thập phân.<br />
+          Ví dụ: <code>10</code>, <code>3.14</code>, <code>-100</code>.
+        </li>
+        <li>
+          <strong><code>String</code></strong
+          >: Lưu trữ chuỗi ký tự, đặt trong <code>' '</code>, <code>" "</code>,
+          hoặc <code> </code>.<br />
+          Ví dụ: <code>"Hello"</code>, <code>'World'</code>,
+          <code>Hi ${name}</code>.
+        </li>
+        <li>
+          <strong><code>Boolean</code></strong
+          >: Chỉ có 2 giá trị: true (đúng) hoặc false (sai).<br />
+          Ví dụ: true, false.
+        </li>
+        <li>
+          <strong><code>Undefined</code></strong
+          >: Khi biến được khai báo nhưng chưa gán giá trị.<br />
+          Ví dụ:
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> x<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+</code></pre>
+        </li>
+        <li>
+          <strong><code>Null</code></strong
+          >: Dùng để gán giá trị "trống" hoặc không có gì.<br />
+          Ví dụ:
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> y <span class="token operator">=</span> <span class="token keyword null nil keyword-null">null</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+      </ul>
+      <h4 id="2-kiểu-dữ-liệu-không-nguyên-thủy---tham-chiếu-reference-types">
+        2. Kiểu dữ liệu không nguyên thủy - tham chiếu (Reference Types):
+      </h4>
+      <ul>
+        <li>
+          <strong><code>Object</code></strong
+          >: Dùng để lưu trữ dữ liệu phức tạp dưới dạng key-value.<br />
+          Ví dụ:
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> person <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"John"</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">25</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+        <li>
+          <strong><code>Array</code></strong
+          >: Một danh sách các giá trị.<br />
+          Ví dụ:
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"red"</span><span class="token punctuation">,</span> <span class="token string">"green"</span><span class="token punctuation">,</span> <span class="token string">"blue"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+        <li>
+          <strong><code>Function</code></strong
+          >: Dùng để định nghĩa các hành động.<br />
+          Ví dụ:
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-function">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Hello!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </li>
+      </ul>
+      <h4
+        id="3-so-sánh-kiểu-dữ-liệu-nguyên-thủy-và-kiểu-dữ-liệu-không-nguyên-thủy"
+      >
+        3. So sánh kiểu dữ liệu nguyên thủy và kiểu dữ liệu không nguyên thủy
+      </h4>
+      <h5 id="31-kiểu-dữ-liệu-nguyên-thủy">3.1. Kiểu dữ liệu nguyên thủy</h5>
+      <ul>
+        <li>
+          <p>
+            Kiểu dữ liệu nguyên thủy là kiểu dữ liệu bất biến tức là khi một
+            kiểu dữ liệu nguyên thủy được tạo ra, ta không thể sửa đổi chúng
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> word <span class="token operator">=</span> <span class="token string">"Hello world"</span><span class="token punctuation">;</span>
+</code></pre>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code>word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Y"</span><span class="token punctuation">;</span>
+</code></pre>
+          <p>
+            Nếu chúng ta cố gắng sửa đổi chuỗi được lưu trữ trong word,
+            Javascript sẽ phát sinh lỗi vì biểu thức này không thể thay đổi
+            chuỗi được lưu trữ trong biến <code>word</code>
+          </p>
+        </li>
+      </ul>
+      <blockquote>
+        <p>
+          ❓
+          <strong
+            >Vậy nếu có 1 biến <code>num = 10</code> và tôi vẫn có thể gán lại
+            là <code>num = 20</code> thì đâu còn gọi là bất biến?</strong
+          ><br />
+          Khi ta thay thay đổi giá trị của biến <code>num</code>, ta không thay
+          đổi giá trị nguyên thủy ban đầu mà là đang tạo ra một giá trị mới và
+          làm cho biến <code>num</code> trỏ tới giá trị này
+        </p>
+      </blockquote>
+      <ul>
+        <li>
+          <p>
+            Các kiểu dữ liệu nguyên thủy so sánh với nhau trực tiếp bằng giá trị
+            của nó
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> numOne <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> numTwo <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>numOne <span class="token operator">==</span> numTwo<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+
+<span class="token keyword keyword-let">let</span> js <span class="token operator">=</span> <span class="token string">"JavaScript"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> py <span class="token operator">=</span> <span class="token string">"Python"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>js <span class="token operator">==</span> py<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//false</span>
+
+<span class="token keyword keyword-let">let</span> lightOn <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> lightOff <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>lightOn <span class="token operator">==</span> lightOff<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre>
+        </li>
+      </ul>
+      <h5 id="32-kiểu-dữ-liệu-không-nguyên-thủy---tham-chiếu">
+        3.2. Kiểu dữ liệu không nguyên thủy - tham chiếu
+      </h5>
+      <ul>
+        <li>
+          <p>
+            Các kiểu dữ liệu không nguyên thủy có thể sửa đổi hoặc thay đổi
+            được, tức ta có thể sửa đổi giá trị của các kiểu dữ liệu nguyên thủy
+            khi chúng được tạo
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [10, 2, 3]</span>
+</code></pre>
+        </li>
+        <li>
+          <p>
+            Kiểu dữ liệu nguyên thủy không so sánh bằng giá trị. Ngay cả khi
+            chúng cùng thuộc tính hay giá trị thì cũng không bằng nhau và chúng
+            chỉ bằng nhau khi cùng tham chiếu đến cùng một đối tượng<br />
+            <strong>Không bằng nhau</strong>:
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums <span class="token operator">==</span> numbers<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+
+<span class="token keyword keyword-let">let</span> userOne <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Asabeneh"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">"teaching"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">country</span><span class="token operator">:</span> <span class="token string">"Finland"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-let">let</span> userTwo <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Asabeneh"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">"teaching"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">country</span><span class="token operator">:</span> <span class="token string">"Finland"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>userOne <span class="token operator">==</span> userTwo<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre>
+          <p><strong>Có bằng nhau:</strong></p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> numbers <span class="token operator">=</span> nums<span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums <span class="token operator">==</span> numbers<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+
+<span class="token keyword keyword-let">let</span> userOne <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Asabeneh"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">"teaching"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">country</span><span class="token operator">:</span> <span class="token string">"Finland"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-let">let</span> userTwo <span class="token operator">=</span> userOne<span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>userOne <span class="token operator">==</span> userTwo<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre>
+        </li>
+      </ul>
+      <h5 id="33-tổng-kết">3.3. Tổng kết</h5>
+      <table>
+        <thead>
+          <tr>
+            <th><strong>Kiểu dữ liệu</strong></th>
+            <th><strong>nguyên thủy</strong></th>
+            <th><strong>không nguyên thủy - tham chiếu</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Khả năng thay đổi</strong></td>
+            <td>Bất biến, không thể thay đổi</td>
+            <td>Có thể thay đổi</td>
+          </tr>
+          <tr>
+            <td><strong>So sánh</strong></td>
+            <td>So sánh giá trị</td>
+            <td>Không so sánh bằng giá trị (So sánh bằng tham chiếu)</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4 id="3-kiểm-tra-kiểu-dữ-liệu">3. Kiểm tra kiểu dữ liệu</h4>
+      <p>Dùng <code>typeof</code> để kiểm tra kiểu dữ liệu của biến.</p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> name <span class="token operator">=</span> <span class="token string">"Alice"</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword keyword-typeof">typeof</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// string</span>
+<span class="token keyword keyword-let">let</span> age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword keyword-typeof">typeof</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number</span>
+<span class="token keyword keyword-let">let</span> isHappy <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword keyword-typeof">typeof</span> isHappy<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// boolean</span>
+</code></pre>
+      <h2 id="iii-biến-và-từ-khóa-khai-báo-let-const-var">
+        <strong
+          >III. Biến và từ khóa khai báo: <code>let</code>, <code>const</code>,
+          <code>var</code></strong
+        >
+      </h2>
+      <h4 id="1-bảng-so-sánh-var-let-const">
+        <strong
+          >1. Bảng so sánh <code>var</code>, <code>let</code>,
+          <code>const</code></strong
+        >
+      </h4>
+      <p>
+        Dưới đây là bảng so sánh giữa <code>var</code>, <code>let</code>, và
+        <code>const</code> mà không đề cập đến phạm vi (scope) và hoisting:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th><strong>Thuộc tính</strong></th>
+            <th>
+              <strong><code>var</code></strong>
+            </th>
+            <th>
+              <strong><code>let</code></strong>
+            </th>
+            <th>
+              <strong><code>const</code></strong>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Khả năng thay đổi</strong></td>
+            <td>Có thể thay đổi</td>
+            <td>Có thể thay đổi</td>
+            <td>Không thể thay đổi</td>
+          </tr>
+          <tr>
+            <td><strong>Khai báo lại biến</strong></td>
+            <td>Cho phép khai báo lại trong cùng phạm vi</td>
+            <td>Không cho phép khai báo lại</td>
+            <td>Không cho phép khai báo lại</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4 id="ví-dụ-minh-họa"><strong>Ví dụ minh họa:</strong></h4>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token comment">// var có phạm vi function</span>
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-var">var</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span>
+
+<span class="token comment">// let có phạm vi block</span>
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-let">let</span> y <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lỗi: y is not defined</span>
+
+<span class="token comment">// const không cho phép thay đổi giá trị</span>
+<span class="token keyword keyword-const">const</span> z <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+z <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token comment">// Lỗi: Assignment to constant variable</span>
+</code></pre>
+      <hr />
+      <h2 id="iv-hoisting-và-scope"><strong>IV. Hoisting và Scope</strong></h2>
+      <h4 id="1-ví-dụ-về-hoisting"><strong>1. Ví dụ về Hoisting</strong></h4>
+      <p>
+        Hoisting là cơ chế đưa khai báo biến/hàm lên đầu phạm vi trước khi thực
+        thi.
+      </p>
+      <ul>
+        <li>
+          Với <strong><code>var</code></strong
+          >, biến được khởi tạo với giá trị <code>undefined</code>.
+        </li>
+        <li>
+          Với <strong><code>let</code>/<code>const</code></strong
+          >, biến không thể được truy cập trước khi khai báo.
+        </li>
+      </ul>
+      <p><strong>Ví dụ:</strong></p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token comment">// Hoisting với var</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+<span class="token keyword keyword-var">var</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Hoisting với let và const</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lỗi: Cannot access 'b' before initialization</span>
+<span class="token keyword keyword-let">let</span> b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</code></pre>
+      <h4 id="2-ví-dụ-về-scope-phạm-vi">
+        <strong>2. Ví dụ về Scope (Phạm vi)</strong>
+      </h4>
+      <p>Phạm vi biến quyết định nơi biến có thể được truy cập.</p>
+      <ul>
+        <li>
+          <strong>Global Scope</strong>:<br />
+          Biến được khai báo ngoài tất cả các khối/hàm.
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> globalVar <span class="token operator">=</span> <span class="token string">"I am global!"</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>globalVar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Có thể truy cập ở mọi nơi</span>
+</code></pre>
+        </li>
+        <li>
+          <strong>Function Scope</strong>:<br />
+          Biến chỉ tồn tại trong hàm.
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-function">function</span> <span class="token function">testScope</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-var">var</span> localVar <span class="token operator">=</span> <span class="token string">"I am local!"</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>localVar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Truy cập được</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>localVar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lỗi: localVar is not defined</span>
+</code></pre>
+        </li>
+        <li>
+          <strong>Block Scope</strong>:<br />
+          Biến khai báo trong khối <code>{ }</code> chỉ tồn tại trong khối đó.
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-let">let</span> blockVar <span class="token operator">=</span> <span class="token string">"I am block-scoped!"</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>blockVar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Truy cập được</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>blockVar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lỗi: blockVar is not defined</span>
+</code></pre>
+        </li>
+      </ul>
+      <p>
+        Dưới đây là bảng so sánh chi tiết về <strong>Hoisting</strong> và
+        <strong>Scope</strong> giữa <code>var</code>, <code>let</code>, và
+        <code>const</code>:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th><strong>Từ khóa</strong></th>
+            <th><strong>Scope</strong></th>
+            <th><strong>Hoisting</strong></th>
+            <th><strong>Truy cập trước khi khai báo</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong><code>var</code></strong>
+            </td>
+            <td>Function Scope</td>
+            <td>Được hoisting, giá trị là <code>undefined</code></td>
+            <td>
+              Có thể truy cập trước khi khai báo nhưng sẽ trả về
+              <code>undefined</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong><code>let</code></strong>
+            </td>
+            <td>Block Scope</td>
+            <td>
+              Được hoisting nhưng
+              <strong>không thể truy cập trước khi khai báo</strong> (Temporal
+              Dead Zone)
+            </td>
+            <td>Gặp lỗi nếu truy cập trước khi khai báo</td>
+          </tr>
+          <tr>
+            <td>
+              <strong><code>const</code></strong>
+            </td>
+            <td>Block Scope</td>
+            <td>
+              Được hoisting nhưng
+              <strong>không thể truy cập trước khi khai báo</strong> (Temporal
+              Dead Zone)
+            </td>
+            <td>Gặp lỗi nếu truy cập trước khi khai báo</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h2 id="v-string-và-template-literals">
+        <strong>V. String và Template Literals</strong>
+      </h2>
+      <h4 id="1-chuỗi"><strong>1. Chuỗi</strong></h4>
+      <p>
+        Là một tập hợp các ký tự được đặc trong dấu nháy đơn hoặc nháy kép, hoặc
+        backtick
+      </p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> str1 <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> str2 <span class="token operator">=</span> <span class="token string">"World"</span><span class="token punctuation">;</span>
+</code></pre>
+      <h4 id="2-nối-chuối"><strong>2. Nối chuối</strong></h4>
+      <p>Nối hai hoặc nhiều chuỗi với nhau được gọi là nối chuỗi.</p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> str1 <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> str2 <span class="token operator">=</span> <span class="token string">"World"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> space <span class="token operator">=</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-let">let</span> fullStr <span class="token operator">=</span> str1 <span class="token operator">+</span> space <span class="token operator">+</span> str2<span class="token punctuation">;</span> <span class="token comment">// nối hai chuối với nhau</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>fullStr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello World</span>
+</code></pre>
+      <h4 id="3-chuỗi-thoát"><strong>3. Chuỗi thoát</strong></h4>
+      <p>
+        Trong JavaScript và các ngôn ngữ lập trình khác \ theo sau một số ký tự
+        là một chuỗi thoát. Hãy xem các ký tự thoát phổ biến nhất:
+      </p>
+      <ul>
+        <li><code>\n</code>: new line</li>
+        <li><code>\t</code>: Tab, means 8 spaces</li>
+        <li><code>\\</code>: Back slash</li>
+        <li><code>\'</code>: Single quote (')</li>
+        <li><code>\"</code>: Double quote (")</li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Hello.\nWorld"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// line break</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"HIT \tWEB \tPRIVATE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"This is a backslash  symbol (\\)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Để viết một dấu gạch chéo ngược</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'In every programming language it starts with "Hello, World!"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"In every programming language it starts with 'Hello, World!'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <h4 id="4-độ-dài-của-chuỗi"><strong>4. Độ dài của chuỗi</strong></h4>
+      <p>
+        Phương thức length trả về độ dài của chuỗi bao gồm không gian trống.
+      </p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> js <span class="token operator">=</span> <span class="token string">"JavaScript"</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>js<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+<span class="token keyword keyword-let">let</span> firstName <span class="token operator">=</span> <span class="token string">"Asabeneh"</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 8</span>
+</code></pre>
+      <h4 id="5-cách-lấy-ra-một-ký-tự-trong-chuỗi-string">
+        <strong>5. Cách lấy ra một ký tự trong chuỗi (String)</strong>
+      </h4>
+      <p>
+        Bạn có thể sử dụng cú pháp <strong>chỉ số (index)</strong> hoặc phương
+        thức --<strong><code>charAt()</code></strong> để lấy ra một ký tự trong
+        chuỗi.
+      </p>
+      <p>
+        Trong lập trình, việc đếm bắt đầu từ 0. Chỉ số đầu tiên của chuỗi bằng 0
+        và chỉ số cuối cùng là độ dài của chuỗi trừ đi một.
+      </p>
+      <p><img src="image.png" alt="alt text" /></p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> string <span class="token operator">=</span> <span class="token string">"JavaScript"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> firstLetter <span class="token operator">=</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>firstLetter<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// J</span>
+
+<span class="token keyword keyword-let">let</span> secondLetter <span class="token operator">=</span> string<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// a</span>
+<span class="token keyword keyword-let">let</span> thirdLetter <span class="token operator">=</span> string<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> lastLetter <span class="token operator">=</span> string<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>lastLetter<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// t</span>
+
+<span class="token keyword keyword-let">let</span> lastIndex <span class="token operator">=</span> string<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>lastIndex<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 9</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span>lastIndex<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// t</span>
+
+<span class="token keyword keyword-let">let</span> message <span class="token operator">=</span> <span class="token string">"Hello, world!"</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>message<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "H" (ký tự đầu tiên)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>message<span class="token punctuation">.</span><span class="token method function property-access">charAt</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "w" (ký tự tại vị trí 7)</span>
+</code></pre>
+      <h4 id="6-thay-đổi-chữ-hoa-chữ-thường">
+        <strong>6. Thay đổi chữ hoa, chữ thường</strong>
+      </h4>
+      <ul>
+        <li>
+          <p><code>toUpperCase()</code>: thay đổi chuỗi thành chữ hoa.</p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> string <span class="token operator">=</span> <span class="token string">"JavaScript"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>string<span class="token punctuation">.</span><span class="token method function property-access">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// JAVASCRIPT</span>
+
+<span class="token keyword keyword-let">let</span> firstName <span class="token operator">=</span> <span class="token string">"Asabeneh"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">.</span><span class="token method function property-access">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ASABENEH</span>
+
+<span class="token keyword keyword-let">let</span> country <span class="token operator">=</span> <span class="token string">"Finland"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>country<span class="token punctuation">.</span><span class="token method function property-access">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// FINLAND</span>
+</code></pre>
+        </li>
+        <li>
+          <p><code>toLowerCase()</code>: thay đổi chuỗi thành chữ thường</p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> string <span class="token operator">=</span> <span class="token string">"JavasCript"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>string<span class="token punctuation">.</span><span class="token method function property-access">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// javascript</span>
+
+<span class="token keyword keyword-let">let</span> firstName <span class="token operator">=</span> <span class="token string">"Asabeneh"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">.</span><span class="token method function property-access">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// asabeneh</span>
+
+<span class="token keyword keyword-let">let</span> country <span class="token operator">=</span> <span class="token string">"Finland"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>country<span class="token punctuation">.</span><span class="token method function property-access">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// finland</span>
+</code></pre>
+        </li>
+      </ul>
+      <h4 id="7-template-literals"><strong>7. Template Literals</strong></h4>
+      <p>
+        Template Literals (chuỗi mẫu) được giới thiệu từ ES6, giúp chèn biến
+        hoặc biểu thức vào chuỗi bằng cú pháp <code>${}</code>.
+      </p>
+      <p>Cú pháp:</p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token comment">//Syntax</span>
+<span class="token keyword keyword-const">const</span> str1 <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">String literal text</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> str2 <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">String literal text </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>expression<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> name <span class="token operator">=</span> <span class="token string">"John"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> age <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> message <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and I am </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>age<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> years old.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "My name is John and I am 25 years old."</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The sum of 2 and 3 is 5</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// statically writing the data</span>
+<span class="token keyword keyword-let">let</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> b <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The sum of </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a <span class="token operator">+</span> b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// injecting the data dynamically</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> b <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is greater than </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a <span class="token operator">&gt;</span> b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2 is greater than 3: false</span>
+</code></pre>
+      <h4 id="8-đổi-kiểu-dữ-liệu"><strong>8. Đổi kiểu dữ liệu</strong></h4>
+      <ul>
+        <li>
+          <p>Chúng ta có thể đổi từ chuỗi sang số bằng các cách sau:</p>
+          <ul>
+            <li><code>parseInt(string)</code></li>
+            <li><code>Number(string)</code></li>
+            <li><code>Plus sign (+)</code></li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> num <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> numInt <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>numInt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+</code></pre>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> num <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> numInt <span class="token operator">=</span> <span class="token known-class-name class-name">Number</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>numInt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+</code></pre>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> num <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> numInt <span class="token operator">=</span> <span class="token operator">+</span>num<span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>numInt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+</code></pre>
+        </li>
+        <li>
+          <p>
+            Chúng ta có thể đổi từ kiểu số thập phân sang số nguyên bằng
+            <code>parseInt()</code>
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> num <span class="token operator">=</span> <span class="token number">9.81</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> numInt <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>numInt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 9</span>
+</code></pre>
+        </li>
+      </ul>
+      <h3 id="vi-toán-tử-operators">
+        <strong>VI. Toán tử (Operators)</strong>
+      </h3>
+      <h4 id="1-các-loại-toán-tử"><strong>1. Các loại toán tử</strong></h4>
+      <ul>
+        <li>
+          <strong>Arithmetic Operators (Toán tử số học)</strong>:
+          <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>,
+          <code>%</code>, <code>**</code> (lũy thừa).
+        </li>
+        <li>
+          <strong>Assignment Operators (Toán tử gán)</strong>: <code>=,</code>
+          <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>,
+          ...
+        </li>
+        <li>
+          <strong>Comparison Operators (Toán tử so sánh)</strong>:
+          <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>,
+          <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>,
+          <code>&gt;=</code>.
+        </li>
+        <li>
+          <strong>Logical Operators (Toán tử logic)</strong>:
+          <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>.
+        </li>
+        <li>
+          <strong>Ternary Operator (Toán tử 3 ngôi)</strong>:
+          <code>condition ? expr1 : expr2</code>.
+        </li>
+      </ul>
+      <h4 id="2-so-sánh--và-">
+        <strong>2. So sánh <code>==</code> và <code>===</code></strong>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Thuộc tính</th>
+            <th><code>==</code> (So sánh lỏng)</th>
+            <th><code>===</code> (So sánh nghiêm ngặt)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>So sánh giá trị</strong></td>
+            <td>Có, tự động chuyển đổi kiểu</td>
+            <td>Có, nhưng không chuyển đổi kiểu</td>
+          </tr>
+          <tr>
+            <td><strong>So sánh kiểu dữ liệu</strong></td>
+            <td>Không</td>
+            <td>Có</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Ví dụ minh họa:</strong></p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token comment">// So sánh lỏng (==)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">==</span> <span class="token string">"5"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true (chuyển "5" thành số 5)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token boolean">false</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+
+<span class="token comment">// So sánh nghiêm ngặt (===)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">===</span> <span class="token string">"5"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false (khác kiểu dữ liệu)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token boolean">false</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false (khác kiểu dữ liệu)</span>
+</code></pre>
+      <p>
+        <strong>Lời khuyên:</strong> Luôn sử dụng
+        <strong><code>===</code></strong> để tránh lỗi không mong muốn do chuyển
+        đổi kiểu dữ liệu tự động.
+      </p>
+      <hr />
+      <h2 id="vii-cấu-trúc-điều-kiện-if-else-switch-case">
+        <strong
+          >VII. Cấu trúc điều kiện: <code>if-else</code>,
+          <code>switch case</code></strong
+        >
+      </h2>
+      <h4 id="1-if--else-if--else">
+        1. <strong><code>if / else-if / else</code></strong>
+      </h4>
+      <p><strong>Cú pháp:</strong></p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Code nếu điều kiện đúng</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>anotherCondition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Code nếu điều kiện khác đúng</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Code nếu không điều kiện nào đúng</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <p><strong>Ví dụ:</strong></p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">15</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Bạn chưa đủ tuổi."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>age <span class="token operator">&gt;=</span> <span class="token number">15</span> <span class="token operator">&amp;&amp;</span> age <span class="token operator">&lt;=</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Bạn vừa đủ tuổi."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Bạn đủ tuổi."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <h4 id="2-switch-case">2. <code>switch case</code></h4>
+      <p><strong>Cú pháp:</strong></p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword control-flow keyword-switch">switch</span> <span class="token punctuation">(</span>expression<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-case">case</span> <span class="token literal-property property">value1</span><span class="token operator">:</span>
+    <span class="token comment">// Code</span>
+    <span class="token keyword control-flow keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-case">case</span> <span class="token literal-property property">value2</span><span class="token operator">:</span>
+    <span class="token comment">// Code</span>
+    <span class="token keyword control-flow keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token keyword module keyword-default">default</span><span class="token operator">:</span>
+  <span class="token comment">// Code</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <p><strong>Ví dụ:</strong></p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> fruit <span class="token operator">=</span> <span class="token string">"apple"</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow keyword-switch">switch</span> <span class="token punctuation">(</span>fruit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-case">case</span> <span class="token string">"banana"</span><span class="token operator">:</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Đây là chuối."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-case">case</span> <span class="token string">"apple"</span><span class="token operator">:</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Đây là táo."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token keyword module keyword-default">default</span><span class="token operator">:</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Trái cây không xác định."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <hr />
+      <h2 id="viii-vòng-lặp-for-while">
+        <strong>VIII. Vòng lặp: <code>for</code>, <code>while</code></strong>
+      </h2>
+      <h4 id="1-for">1. <code>for</code></h4>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <h4 id="2-while">2. <code>while</code></h4>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow keyword-while">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <h3 id="3-do-while">3. <code>do-while</code></h3>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow keyword-do">do</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-while">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <h4 id="4-for-of-loop">4. <code>for of loop</code></h4>
+      <p>
+        Nếu bạn không quá quan trọng hay để ý tới giá trị index khi sử dụng đến
+        vòng lặp, bạn có thể sử dụng <code>for of loop</code>
+      </p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> element <span class="token keyword keyword-of">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// code goes here</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-const">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> num <span class="token keyword keyword-of">of</span> numbers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 1 2 3 4 5</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> num <span class="token keyword keyword-of">of</span> numbers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>num <span class="token operator">*</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 1 4 9 16 25</span>
+
+<span class="token comment">// adding all the numbers in the array</span>
+<span class="token keyword keyword-let">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> num <span class="token keyword keyword-of">of</span> numbers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sum <span class="token operator">=</span> sum <span class="token operator">+</span> num<span class="token punctuation">;</span>
+  <span class="token comment">// can be also shorten like this, sum += num</span>
+  <span class="token comment">// after this we will use the shorter synthax(+=, -=, *=, /= etc)</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 15</span>
+
+<span class="token keyword keyword-const">const</span> webTechs <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token string">"HTML"</span><span class="token punctuation">,</span>
+  <span class="token string">"CSS"</span><span class="token punctuation">,</span>
+  <span class="token string">"JavaScript"</span><span class="token punctuation">,</span>
+  <span class="token string">"React"</span><span class="token punctuation">,</span>
+  <span class="token string">"Redux"</span><span class="token punctuation">,</span>
+  <span class="token string">"Node"</span><span class="token punctuation">,</span>
+  <span class="token string">"MongoDB"</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> tech <span class="token keyword keyword-of">of</span> webTechs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>tech<span class="token punctuation">.</span><span class="token method function property-access">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// HTML CSS JAVASCRIPT REACT NODE MONGODB</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> tech <span class="token keyword keyword-of">of</span> webTechs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>tech<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// get only the first letter of each element,  H C J R N M</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-const">const</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Finland"</span><span class="token punctuation">,</span> <span class="token string">"Sweden"</span><span class="token punctuation">,</span> <span class="token string">"Norway"</span><span class="token punctuation">,</span> <span class="token string">"Denmark"</span><span class="token punctuation">,</span> <span class="token string">"Iceland"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> newArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> country <span class="token keyword keyword-of">of</span> countries<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  newArr<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>country<span class="token punctuation">.</span><span class="token method function property-access">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>newArr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ["FINLAND", "SWEDEN", "NORWAY", "DENMARK", "ICELAND"]</span>
+</code></pre>
+      <h4 id="5-break"><code>5. break</code></h4>
+      <p><code>break</code> được sử dụng để dừng vòng lặp</p>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 0 1 2</span>
+</code></pre>
+      <h4 id="6-continue"><code>6. continue</code></h4>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 0 1 2</span>
+</code></pre>
+      <hr />
+      <h2 id="ix-giới-thiệu-thêm-về-prompt-và-alert">
+        <strong
+          >IX. Giới thiệu thêm về <code>prompt</code> và
+          <code>alert</code></strong
+        >
+      </h2>
+      <ol>
+        <li><code>prompt()</code></li>
+      </ol>
+      <ul>
+        <li>
+          <p>
+            là một hàm trong Javascript dùng để lấy thông tin đầu vào từ người
+            dùng thông qua hộp thoại (dialog box).
+          </p>
+        </li>
+        <li>
+          <p>
+            Nó hiển thị một hộp thoại có trường nhập liệu và một nút "OK" để xác
+            nhận. Người dùng có thể nhập thông tin vào trường đó, sau đó thông
+            tin sẽ được lưu trong một biến
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token function">prompt</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> defaultValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+          <ul>
+            <li>
+              <code>message</code>: Thông báo hiển thị trong hộp thoại để hướng
+              dẫn người dùng.
+            </li>
+            <li>
+              <code>defaultValue</code> (tùy chọn): Giá trị mặc định hiển thị
+              trong ô nhập liệu.
+            </li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token keyword keyword-let">let</span> name <span class="token operator">=</span> <span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Nhập tên của bạn:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Xin chào, "</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+      </ul>
+      <ol start="2">
+        <li><code>alert()</code></li>
+      </ol>
+      <ul>
+        <li>
+          <p>
+            <code>alert()</code> là một hàm trong JavaScript dùng để hiển thị
+            thông báo (message box) cho người dùng thông qua một hộp thoại đơn
+            giản.
+          </p>
+        </li>
+        <li>
+          <p>
+            Nó chỉ hiển thị thông tin và có nút OK để người dùng đóng thông báo.
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token function">alert</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+          <ul>
+            <li>
+              <code>message</code>: Thông tin cần hiển thị trong hộp thông báo.
+            </li>
+          </ul>
+          <pre
+            data-role="codeBlock"
+            data-info="javascript"
+            class="language-javascript javascript"
+          ><code><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Chào mừng bạn đến với JavaScript!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
