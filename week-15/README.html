@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Week 15</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="file:///c:\Users\Admin\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.15\crossnote\dependencies\katex\katex.min.css"
+    />
+
+    <style>
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #333;
+        background: 0 0;
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.4;
+        -moz-tab-size: 8;
+        -o-tab-size: 8;
+        tab-size: 8;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+      pre[class*="language-"] {
+        padding: 0.8em;
+        overflow: auto;
+        border-radius: 3px;
+        background: #f5f5f5;
+      }
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+        background: #f5f5f5;
+      }
+      .token.blockquote,
+      .token.comment {
+        color: #969896;
+      }
+      .token.cdata {
+        color: #183691;
+      }
+      .token.doctype,
+      .token.macro.property,
+      .token.punctuation,
+      .token.variable {
+        color: #333;
+      }
+      .token.builtin,
+      .token.important,
+      .token.keyword,
+      .token.operator,
+      .token.rule {
+        color: #a71d5d;
+      }
+      .token.attr-value,
+      .token.regex,
+      .token.string,
+      .token.url {
+        color: #183691;
+      }
+      .token.atrule,
+      .token.boolean,
+      .token.code,
+      .token.command,
+      .token.constant,
+      .token.entity,
+      .token.number,
+      .token.property,
+      .token.symbol {
+        color: #0086b3;
+      }
+      .token.prolog,
+      .token.selector,
+      .token.tag {
+        color: #63a35c;
+      }
+      .token.attr-name,
+      .token.class,
+      .token.class-name,
+      .token.function,
+      .token.id,
+      .token.namespace,
+      .token.pseudo-class,
+      .token.pseudo-element,
+      .token.url-reference .token.variable {
+        color: #795da3;
+      }
+      .token.entity {
+        cursor: help;
+      }
+      .token.title,
+      .token.title .token.punctuation {
+        font-weight: 700;
+        color: #1d3e81;
+      }
+      .token.list {
+        color: #ed6a43;
+      }
+      .token.inserted {
+        background-color: #eaffea;
+        color: #55a532;
+      }
+      .token.deleted {
+        background-color: #ffecec;
+        color: #bd2c00;
+      }
+      .token.bold {
+        font-weight: 700;
+      }
+      .token.italic {
+        font-style: italic;
+      }
+      .language-json .token.property {
+        color: #183691;
+      }
+      .language-markup .token.tag .token.punctuation {
+        color: #333;
+      }
+      .language-css .token.function,
+      code.language-css {
+        color: #0086b3;
+      }
+      .language-yaml .token.atrule {
+        color: #63a35c;
+      }
+      code.language-yaml {
+        color: #183691;
+      }
+      .language-ruby .token.function {
+        color: #333;
+      }
+      .language-markdown .token.url {
+        color: #795da3;
+      }
+      .language-makefile .token.symbol {
+        color: #795da3;
+      }
+      .language-makefile .token.variable {
+        color: #183691;
+      }
+      .language-makefile .token.builtin {
+        color: #0086b3;
+      }
+      .language-bash .token.keyword {
+        color: #0086b3;
+      }
+      pre[data-line] {
+        position: relative;
+        padding: 1em 0 1em 3em;
+      }
+      pre[data-line] .line-highlight-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+      }
+      pre[data-line] .line-highlight {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: inherit 0;
+        margin-top: 1em;
+        background: hsla(24, 20%, 50%, 0.08);
+        background: linear-gradient(
+          to right,
+          hsla(24, 20%, 50%, 0.1) 70%,
+          hsla(24, 20%, 50%, 0)
+        );
+        pointer-events: none;
+        line-height: inherit;
+        white-space: pre;
+      }
+      pre[data-line] .line-highlight:before,
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-start);
+        position: absolute;
+        top: 0.4em;
+        left: 0.6em;
+        min-width: 1em;
+        padding: 0 0.5em;
+        background-color: hsla(24, 20%, 50%, 0.4);
+        color: #f4f1ef;
+        font: bold 65%/1.5 sans-serif;
+        text-align: center;
+        vertical-align: 0.3em;
+        border-radius: 999px;
+        text-shadow: none;
+        box-shadow: 0 1px #fff;
+      }
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-end);
+        top: auto;
+        bottom: 0.4em;
+      }
+      html body {
+        font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans,
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        overflow: initial;
+        box-sizing: border-box;
+        word-wrap: break-word;
+      }
+      html body > :first-child {
+        margin-top: 0;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        line-height: 1.2;
+        margin-top: 1em;
+        margin-bottom: 16px;
+        color: #000;
+      }
+      html body h1 {
+        font-size: 2.25em;
+        font-weight: 300;
+        padding-bottom: 0.3em;
+      }
+      html body h2 {
+        font-size: 1.75em;
+        font-weight: 400;
+        padding-bottom: 0.3em;
+      }
+      html body h3 {
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+      html body h4 {
+        font-size: 1.25em;
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+      html body h6 {
+        font-size: 1em;
+        font-weight: 600;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5 {
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1em;
+      }
+      html body h6 {
+        color: #5c5c5c;
+      }
+      html body strong {
+        color: #000;
+      }
+      html body del {
+        color: #5c5c5c;
+      }
+      html body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      html body a {
+        color: #08c;
+        text-decoration: none;
+      }
+      html body a:hover {
+        color: #00a3f5;
+        text-decoration: none;
+      }
+      html body img {
+        max-width: 100%;
+      }
+      html body > p {
+        margin-top: 0;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+      }
+      html body > ol,
+      html body > ul {
+        margin-bottom: 16px;
+      }
+      html body ol,
+      html body ul {
+        padding-left: 2em;
+      }
+      html body ol.no-list,
+      html body ul.no-list {
+        padding: 0;
+        list-style-type: none;
+      }
+      html body ol ol,
+      html body ol ul,
+      html body ul ol,
+      html body ul ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body li {
+        margin-bottom: 0;
+      }
+      html body li.task-list-item {
+        list-style: none;
+      }
+      html body li > p {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body .task-list-item-checkbox {
+        margin: 0 0.2em 0.25em -1.8em;
+        vertical-align: middle;
+      }
+      html body .task-list-item-checkbox:hover {
+        cursor: pointer;
+      }
+      html body blockquote {
+        margin: 16px 0;
+        font-size: inherit;
+        padding: 0 15px;
+        color: #5c5c5c;
+        background-color: #f0f0f0;
+        border-left: 4px solid #d6d6d6;
+      }
+      html body blockquote > :first-child {
+        margin-top: 0;
+      }
+      html body blockquote > :last-child {
+        margin-bottom: 0;
+      }
+      html body hr {
+        height: 4px;
+        margin: 32px 0;
+        background-color: #d6d6d6;
+        border: 0 none;
+      }
+      html body table {
+        margin: 10px 0 15px 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: block;
+        width: 100%;
+        overflow: auto;
+        word-break: normal;
+        word-break: keep-all;
+      }
+      html body table th {
+        font-weight: 700;
+        color: #000;
+      }
+      html body table td,
+      html body table th {
+        border: 1px solid #d6d6d6;
+        padding: 6px 13px;
+      }
+      html body dl {
+        padding: 0;
+      }
+      html body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 700;
+      }
+      html body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      html body code {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        font-size: 0.85em;
+        color: #000;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+        padding: 0.2em 0;
+      }
+      html body code::after,
+      html body code::before {
+        letter-spacing: -0.2em;
+        content: "\00a0";
+      }
+      html body pre > code {
+        padding: 0;
+        margin: 0;
+        word-break: normal;
+        white-space: pre;
+        background: 0 0;
+        border: 0;
+      }
+      html body .highlight {
+        margin-bottom: 16px;
+      }
+      html body .highlight pre,
+      html body pre {
+        padding: 1em;
+        overflow: auto;
+        line-height: 1.45;
+        border: #d6d6d6;
+        border-radius: 3px;
+      }
+      html body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      html body pre code,
+      html body pre tt {
+        display: inline;
+        max-width: initial;
+        padding: 0;
+        margin: 0;
+        overflow: initial;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      html body pre code:after,
+      html body pre code:before,
+      html body pre tt:after,
+      html body pre tt:before {
+        content: normal;
+      }
+      html body blockquote,
+      html body dl,
+      html body ol,
+      html body p,
+      html body pre,
+      html body ul {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      html body kbd {
+        color: #000;
+        border: 1px solid #d6d6d6;
+        border-bottom: 2px solid #c7c7c7;
+        padding: 2px 4px;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+      }
+      @media print {
+        html body {
+          background-color: #fff;
+        }
+        html body h1,
+        html body h2,
+        html body h3,
+        html body h4,
+        html body h5,
+        html body h6 {
+          color: #000;
+          page-break-after: avoid;
+        }
+        html body blockquote {
+          color: #5c5c5c;
+        }
+        html body pre {
+          page-break-inside: avoid;
+        }
+        html body table {
+          display: table;
+        }
+        html body img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        html body code,
+        html body pre {
+          word-wrap: break-word;
+          white-space: pre;
+        }
+      }
+      .markdown-preview {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .markdown-preview ul {
+        list-style: disc;
+      }
+      .markdown-preview ul ul {
+        list-style: circle;
+      }
+      .markdown-preview ul ul ul {
+        list-style: square;
+      }
+      .markdown-preview ol {
+        list-style: decimal;
+      }
+      .markdown-preview ol ol,
+      .markdown-preview ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-preview ol ol ol,
+      .markdown-preview ol ul ol,
+      .markdown-preview ul ol ol,
+      .markdown-preview ul ul ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-preview .newpage,
+      .markdown-preview .pagebreak {
+        page-break-before: always;
+      }
+      .markdown-preview pre.line-numbers {
+        position: relative;
+        padding-left: 3.8em;
+        counter-reset: linenumber;
+      }
+      .markdown-preview pre.line-numbers > code {
+        position: relative;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows {
+        position: absolute;
+        pointer-events: none;
+        top: 1em;
+        font-size: 100%;
+        left: 0;
+        width: 3em;
+        letter-spacing: -1px;
+        border-right: 1px solid #999;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span:before {
+        content: counter(linenumber);
+        color: #999;
+        display: block;
+        padding-right: 0.8em;
+        text-align: right;
+      }
+      .markdown-preview .mathjax-exps .MathJax_Display {
+        text-align: center !important;
+      }
+      .markdown-preview:not([data-for="preview"])
+        .code-chunk
+        .code-chunk-btn-group {
+        display: none;
+      }
+      .markdown-preview:not([data-for="preview"]) .code-chunk .status {
+        display: none;
+      }
+      .markdown-preview:not([data-for="preview"]) .code-chunk .output-div {
+        margin-bottom: 16px;
+      }
+      .markdown-preview .md-toc {
+        padding: 0;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link {
+        display: inline;
+        padding: 0.25rem 0;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,
+      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p {
+        display: inline;
+      }
+      .markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link {
+        font-weight: 800;
+      }
+      .scrollbar-style::-webkit-scrollbar {
+        width: 8px;
+      }
+      .scrollbar-style::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      .scrollbar-style::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html body[for="html-export"]:not([data-presentation-mode]) {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode])
+        .markdown-preview {
+        position: relative;
+        top: 0;
+        min-height: 100vh;
+      }
+      @media screen and (min-width: 914px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em calc(50% - 457px + 2em);
+        }
+      }
+      @media screen and (max-width: 914px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          .markdown-preview {
+          font-size: 14px !important;
+          padding: 1em;
+        }
+      }
+      @media print {
+        html
+          body[for="html-export"]:not([data-presentation-mode])
+          #sidebar-toc-btn {
+          display: none;
+        }
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode])
+        #sidebar-toc-btn {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        font-size: 28px;
+        cursor: pointer;
+        color: inherit;
+        z-index: 99;
+        width: 32px;
+        text-align: center;
+        opacity: 0.4;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        #sidebar-toc-btn {
+        opacity: 1;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        padding: 32px 0 48px 0;
+        font-size: 14px;
+        box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+        box-sizing: border-box;
+        overflow: auto;
+        background-color: inherit;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar {
+        width: 8px;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        a {
+        text-decoration: none;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc {
+        padding: 0 16px;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link {
+        display: inline;
+        padding: 0.25rem 0;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link
+        div,
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper
+        .md-toc-link
+        p {
+        display: inline;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .md-sidebar-toc
+        .md-toc
+        .md-toc-link-wrapper.highlighted
+        .md-toc-link {
+        font-weight: 800;
+      }
+      html
+        body[for="html-export"]:not(
+          [data-presentation-mode]
+        )[html-show-sidebar-toc]
+        .markdown-preview {
+        left: 300px;
+        width: calc(100% - 300px);
+        padding: 2em calc(50% - 457px - 300px / 2);
+        margin: 0;
+        box-sizing: border-box;
+      }
+      @media screen and (max-width: 1274px) {
+        html
+          body[for="html-export"]:not(
+            [data-presentation-mode]
+          )[html-show-sidebar-toc]
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for="html-export"]:not(
+            [data-presentation-mode]
+          )[html-show-sidebar-toc]
+          .markdown-preview {
+          width: 100%;
+        }
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode]):not(
+          [html-show-sidebar-toc]
+        )
+        .markdown-preview {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      html
+        body[for="html-export"]:not([data-presentation-mode]):not(
+          [html-show-sidebar-toc]
+        )
+        .md-sidebar-toc {
+        display: none;
+      }
+      /* Please visit the URL below for more information: */
+      /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+    </style>
+    <!-- The content below will be included at the end of the <head> element. -->
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        // your code here
+      });
+    </script>
+  </head>
+  <body for="html-export">
+    <div class="crossnote markdown-preview">
+      <h1 id="hit15-web-private-2024---week-15">
+        HIT15-WEB-PRIVATE-2024 - WEEK 15
+      </h1>
+      <hr />
+      <h4 id="homereadmehtml"><a href="../README.html">Home</a></h4>
+      <hr />
+      <h4 id="i-destructuringi-destructuring">
+        <a href="#i-destructuring">I. Destructuring</a>
+      </h4>
+      <h4 id="ii-spreadii-spread"><a href="#ii-spread">II. Spread</a></h4>
+      <h4 id="iii-restiii-rest"><a href="#iii-rest">III. Rest</a></h4>
+      <h4 id="iv-settimeoutsetintervaliv-settimeoutsetinterval">
+        <a href="#iv-settimeoutsetinterval">IV. setTimeout/setInterval</a>
+      </h4>
+      <h4 id="v-callback-hellv-callback-hell">
+        <a href="#v-callback-hell">V. Callback Hell</a>
+      </h4>
+      <h4
+        id="vi-đồng-bộ-và-bất-đồng-bộvi-đồng-bộ-synchronous-và-bất-đồng-bộ-asynchronous"
+      >
+        <a
+          href="#vi-%C4%91%E1%BB%93ng-b%E1%BB%99-synchronous-v%C3%A0-b%E1%BA%A5t-%C4%91%E1%BB%93ng-b%E1%BB%99-asynchronous"
+          >VI. Đồng bộ và Bất đồng bộ</a
+        >
+      </h4>
+      <h4 id="vii-giới-thiệu-về-datevii-giới-thiệu-về-date-trong-javascript">
+        <a
+          href="#vii-gi%E1%BB%9Bi-thi%E1%BB%87u-v%E1%BB%81-date-trong-javascript"
+          >VII. Giới thiệu về Date</a
+        >
+      </h4>
+      <h4 id="viii-giới-thiệu-về-mathviii-giới-thiệu-về-math-trong-javascript">
+        <a
+          href="#viii-gi%E1%BB%9Bi-thi%E1%BB%87u-v%E1%BB%81-math-trong-javascript"
+          >VIII. Giới thiệu về Math</a
+        >
+      </h4>
+      <hr />
+      <h3 id="i-destructuring">I. Destructuring</h3>
+      <ul>
+        <li>
+          <strong>Destructuring</strong> là một tính năng giúp chúng ta trích
+          xuất dữ liệu từ <strong>mảng</strong> hoặc
+          <strong>đối tượng</strong> một cách dễ dàng mà không cần truy cập từng
+          phần tử theo cách thủ công. Từ đó làm giảm đáng kể các dòng mã thao
+          tác tới <code>mảng</code> hoặc <code>đối tượng</code>
+        </li>
+        <li><strong>Cú pháp:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token comment">// Với mảng</span>
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>var1<span class="token punctuation">,</span> var2<span class="token punctuation">,</span> <span class="token spread operator">...</span>rest<span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">;</span>
+
+<span class="token comment">// Với object</span>
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> key1<span class="token punctuation">,</span> key2<span class="token punctuation">,</span> <span class="token spread operator">...</span>rest <span class="token punctuation">}</span> <span class="token operator">=</span> object<span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li><strong>Destructuring với mảng:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Cách truyền thống</span>
+<span class="token keyword keyword-const">const</span> a <span class="token operator">=</span> numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> b <span class="token operator">=</span> numbers<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span> <span class="token operator">=</span> numbers<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1 2</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> numbers<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1 3</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> third<span class="token punctuation">]</span> <span class="token operator">=</span> numbers<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>third<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> <span class="token spread operator">...</span>rest<span class="token punctuation">]</span> <span class="token operator">=</span> numbers<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>rest<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [2, 3, 4, 5]</span>
+</code></pre>
+      <ul>
+        <li><strong>Destructuring với object:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">"New York"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> name <span class="token operator">=</span> user<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> age <span class="token operator">=</span> user<span class="token punctuation">.</span><span class="token property-access">age</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> city <span class="token operator">=</span> user<span class="token punctuation">.</span><span class="token property-access">city</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> age <span class="token punctuation">}</span> <span class="token operator">=</span> user<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Alice 25</span>
+
+<span class="token comment">// Đổi tên biến</span>
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> userName<span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> userAge <span class="token punctuation">}</span> <span class="token operator">=</span> user<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>userName<span class="token punctuation">,</span> userAge<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Alice 25</span>
+</code></pre>
+      <ul>
+        <li><strong>Giá trị mặc định khi Destructuring</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"John"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span> <span class="token operator">=</span> person<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// John 30</span>
+</code></pre>
+      <ul>
+        <li>
+          <p><strong>Lưu ý:</strong></p>
+          <ul>
+            <li>Destructuring chỉ hoạt động với mảng và object.</li>
+            <li>
+              Khi destructuring object, key phải trùng với key trong object. Có
+              thể gán giá trị mặc định nếu key không tồn tại.
+            </li>
+            <li>
+              Object không có thứ tự, nên destructuring phải dựa vào key thay vì
+              theo vị trí các phần tử trong mảng
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h3 id="ii-spread">II. Spread</h3>
+      <ul>
+        <li>
+          Spread (<code>...</code>) giúp mở rộng mảng hoặc object. Bên cạnh đó
+          spread còn rất nhiều các chức năng hữu dụng khác
+          <ul>
+            <li>Sao chép một mảng</li>
+            <li>Tách hoặc kết hợp một hay nhiều mảng</li>
+            <li>Sử dụng mảng như danh sách các đối số (Argument)</li>
+            <li>Thêm một item vào một list</li>
+            <li>Kết hợp các Object</li>
+            <li>Chuyển NodeList thành một Array</li>
+          </ul>
+        </li>
+        <li><strong>Cú pháp:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token comment">// Với mảng</span>
+<span class="token keyword keyword-const">const</span> newArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>array1<span class="token punctuation">,</span> <span class="token spread operator">...</span>array2<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Với object</span>
+<span class="token keyword keyword-const">const</span> newObject <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token spread operator">...</span>object1<span class="token punctuation">,</span> <span class="token spread operator">...</span>object2 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li><strong>Spread với mảng:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> mergedArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>arr1<span class="token punctuation">,</span> <span class="token spread operator">...</span>arr2<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>mergedArray<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3, 4, 5, 6]</span>
+</code></pre>
+      <ul>
+        <li><strong>Spread với object:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token comment">// Create an Object and a copied Object with Object.assign()</span>
+<span class="token keyword keyword-const">const</span> originalObject <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">enabled</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">darkMode</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> secondObject <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> originalObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>secondObject<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//{enabled: true, darkMode: false}</span>
+
+<span class="token comment">// Create an object and a copied object with spread</span>
+<span class="token keyword keyword-const">const</span> originalObject <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">enabled</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">darkMode</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> secondObject <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token spread operator">...</span>originalObject <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>secondObject<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//{enabled: true, darkMode: false}</span>
+
+<span class="token keyword keyword-const">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token literal-property property">c</span><span class="token operator">:</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> mergedObj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token spread operator">...</span>obj1<span class="token punctuation">,</span> <span class="token spread operator">...</span>obj2 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>mergedObj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { a: 1, b: 3, c: 4 }</span>
+</code></pre>
+      <p>
+        💡 Lưu ý: Nếu object có cùng key, key ở object sau sẽ ghi đè object
+        trước.
+      </p>
+      <ul>
+        <li><strong>Sao chép mảng:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"🍏"</span><span class="token punctuation">,</span> <span class="token string">"🍊"</span><span class="token punctuation">,</span> <span class="token string">"🍌"</span><span class="token punctuation">,</span> <span class="token string">"🍉"</span><span class="token punctuation">,</span> <span class="token string">"🍍"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">//sao chép mảng fruits sang mảng moreFruits</span>
+<span class="token keyword keyword-const">const</span> moreFruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>fruits<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>moreFruits<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Array(5) [ "🍏", "🍊", "🍌", "🍉", "🍍" ]</span>
+</code></pre>
+      <ul>
+        <li><strong>Sử dụng mảng như danh sách các tham số:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> fruitStand <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"🍏"</span><span class="token punctuation">,</span> <span class="token string">"🍊"</span><span class="token punctuation">,</span> <span class="token string">"🍌"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">sellFruit</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">f1<span class="token punctuation">,</span> f2<span class="token punctuation">,</span> f3</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Fruits for sale: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>f1<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>f2<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>f3<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">sellFruit</span><span class="token punctuation">(</span><span class="token spread operator">...</span>fruitStand<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fruits for sale: 🍏, 🍊, 🍌</span>
+fruitStand<span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fruitStand<span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fruitStand<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token string">"🍉"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fruitStand<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token string">"🍍"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">sellFruit</span><span class="token punctuation">(</span><span class="token spread operator">...</span>fruitStand<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fruits for sale: 🍏, 🍉, 🍍</span>
+fruitStand<span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fruitStand<span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">sellFruit</span><span class="token punctuation">(</span><span class="token spread operator">...</span>fruitStand<span class="token punctuation">,</span> <span class="token string">"🍋"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fruits for sale: 🍏, 🍋, undefined</span>
+</code></pre>
+      <ul>
+        <li><strong>Thêm phần tử vào mảng:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token comment">// Create an Array</span>
+<span class="token keyword keyword-const">const</span> tools <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"hammer"</span><span class="token punctuation">,</span> <span class="token string">"screwdriver"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> otherTools <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"wrench"</span><span class="token punctuation">,</span> <span class="token string">"saw"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Concatenate tools and otherTools together</span>
+<span class="token keyword keyword-const">const</span> allTools <span class="token operator">=</span> tools<span class="token punctuation">.</span><span class="token method function property-access">concat</span><span class="token punctuation">(</span>otherTools<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>allTools<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//(4) ["hammer","screwdriver","wrench","saw"]</span>
+
+<span class="token comment">// Unpack the tools Array into the allTools Array</span>
+<span class="token keyword keyword-const">const</span> allTools <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>tools<span class="token punctuation">,</span> <span class="token spread operator">...</span>otherTools<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>allTools<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> ocean <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"🐙"</span><span class="token punctuation">,</span> <span class="token string">"🦀"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> aquarium <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>ocean<span class="token punctuation">,</span> <span class="token string">"🐡"</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Add a single value</span>
+<span class="token keyword keyword-const">const</span> sushi <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>ocean<span class="token punctuation">,</span> <span class="token string">"🐡"</span><span class="token punctuation">,</span> <span class="token string">"🍚"</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Add multiple values</span>
+
+aquarium<span class="token punctuation">;</span> <span class="token comment">// ['🐙', '🦀', '🐡']</span>
+sushi<span class="token punctuation">;</span> <span class="token comment">// ['🐙', '🦀', '🐡', '🍚']</span>
+
+<span class="token comment">// Original Array Not Affected</span>
+ocean<span class="token punctuation">;</span> <span class="token comment">// ['🐙', '🦀']</span>
+</code></pre>
+      <ul>
+        <li><strong>Kết hợp 2 hay nhiều object với nhau:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> objectOne <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">hello</span><span class="token operator">:</span> <span class="token string">"🤪"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> objectTwo <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">world</span><span class="token operator">:</span> <span class="token string">"🐻"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Kết hợp objectOne, objectTwo lại trong objectThree và thêm thuộc tính laugh</span>
+<span class="token keyword keyword-const">const</span> objectThree <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token spread operator">...</span>objectOne<span class="token punctuation">,</span> <span class="token spread operator">...</span>objectTwo<span class="token punctuation">,</span> <span class="token literal-property property">laugh</span><span class="token operator">:</span> <span class="token string">"😂"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>objectThree<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Object { hello: "🤪", world: "🐻", laugh: "😂" }</span>
+
+<span class="token comment">// Tương tự chúng ta có objectFour, với laugh là một hàm</span>
+<span class="token keyword keyword-const">const</span> objectFour <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token spread operator">...</span>objectOne<span class="token punctuation">,</span>
+  <span class="token spread operator">...</span>objectTwo<span class="token punctuation">,</span>
+  <span class="token function-variable function">laugh</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"😂"</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+objectFour<span class="token punctuation">.</span><span class="token method function property-access">laugh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 😂😂😂😂😂</span>
+</code></pre>
+      <ul>
+        <li>
+          <p>
+            <strong>Lưu ý:</strong><br />
+            Khi sửu dụng spread operator, chúng sẽ tạo ra một tham chiếu mới,
+            sao chép giá trị của tham chiếu cũ vào tham chiếu mới. Từ đó, mọi
+            thao tác làm thay đổi tham chiếu cũ sẽ không ảnh hưởng đến mảng được
+            sao chép, điều mà sẽ xảy ra nếu chúng ta sao chép mảng sử dụng
+            phương thức gán <code>=</code>
+          </p>
+          <pre
+            data-role="codeBlock"
+            data-info="js"
+            class="language-javascript js"
+          ><code><span class="token keyword keyword-const">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"😉"</span><span class="token punctuation">,</span> <span class="token string">"😊"</span><span class="token punctuation">,</span> <span class="token string">"😇"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> copyWithEquals <span class="token operator">=</span> array<span class="token punctuation">;</span> <span class="token comment">// Thay đổi mảng array đồng nghĩa cũng sẽ thay đổi mảng copyWithEquals</span>
+<span class="token keyword keyword-const">const</span> copyWithSpread <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>array<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Thay đổi mảng array sẽ không ảnh hưởng đến mảng copyWithSpread</span>
+
+array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"😡"</span><span class="token punctuation">;</span> <span class="token comment">//thay đổi phần tử đầu tiên của mảng array</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token spread operator">...</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 😡 😊 😇</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token spread operator">...</span>copyWithEquals<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 😡 😊 😇</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token spread operator">...</span>copyWithSpread<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 😉 😊 😇</span>
+</code></pre>
+        </li>
+      </ul>
+      <h3 id="iii-rest">III .Rest</h3>
+      <ul>
+        <li>Rest giúp gom nhiều tham số vào một mảng.</li>
+        <li><strong>Rest với Function:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-function">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter"><span class="token spread operator">...</span>numbers</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-return">return</span> numbers<span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">total<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> total <span class="token operator">+</span> num<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+</code></pre>
+      <ul>
+        <li><strong>Rest với Destructuring:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> <span class="token spread operator">...</span>rest<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>rest<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [20, 30, 40]</span>
+</code></pre>
+      <h3 id="iv-settimeoutsetinterval">IV. setTimeout/setInterval</h3>
+      <h4 id="1-settimeout">1. setTimeout()</h4>
+      <ul>
+        <li>
+          setTimeout cho phép thực hiện một hành động nào đó sau một khoảng thời
+          gian trễ được tính bằng mili giây.
+        </li>
+        <li><strong>Cú pháp:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword keyword-function">function</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>function</strong>: Tham số này là một hàm sẽ thực hiện hành
+          động nào đó sau thời gian trì hoãn
+        </li>
+        <li>
+          <strong>delay</strong>: Tham số này xác định độ trễ tính bằng mili
+          giây
+        </li>
+        <li><strong>Ví dụ:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-function">function</span> <span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Hello there!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>myFunc<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Hello there!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="html"
+        class="language-html html"
+      ><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>JavaScript setTimeout<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>
+      Click below button to increase count value<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
+      after one second
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>myButton<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Click me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Count: 0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+      <span class="token keyword keyword-const">const</span> myBtn <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"myButton"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-let">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      myBtn<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-const">const</span> result <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-let">let</span> intervalId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+          count<span class="token operator">++</span><span class="token punctuation">;</span>
+          result<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token embedded-code html">Count: ${count}</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <h4 id="2-setinterval">2. setInterval()</h4>
+      <ul>
+        <li>
+          setInterval cho phép thực hiện lặp lại một hành động nào đó sau một
+          khoảng thời gian trễ được tính bằng mili giây.
+        </li>
+        <li><strong>Cú pháp:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword keyword-function">function</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>function</strong>: Tham số này là một hàm sẽ thực hiện hành
+          động nào đó sau thời gian trì hoãn
+        </li>
+        <li>
+          <strong>delay</strong>: Tham số này xác định độ trễ tính bằng mili
+          giây
+        </li>
+        <li><strong>Ví dụ:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Hello there!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-let">let</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  num<span class="token operator">++</span><span class="token punctuation">;</span>
+
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The value is: "</span> <span class="token operator">+</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="html"
+        class="language-html html"
+      ><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>JavaScript setInterval<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>
+      The below count value will increase
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
+      automatically after evry one second.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Count: 0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+      <span class="token keyword keyword-let">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-const">const</span> result <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-let">let</span> intervalId <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+        result<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token embedded-code html">Count: ${count}</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <h4 id="3-return-value-và-cancel-timers">
+        3. Return value và cancel timers
+      </h4>
+      <ul>
+        <li>
+          Hai phương thức <strong>setTimeout()</strong> và
+          <strong>setInterval()</strong> sẽ trả về id để chúng ta có thể hủy bộ
+          đếm dễ dàng
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-let">let</span> timeOutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>myFunc<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> intervalId <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span>myFunc<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li>
+          Để có thể hủy bộ đếm chúng ta có hai phương thức là
+          <strong>clearTimeout()</strong> và <strong>clearInterval()</strong>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeOutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">clearInterval</span><span class="token punctuation">(</span>intervalId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <h3 id="v-callback-hell">V. Callback Hell</h3>
+      <ul>
+        <li>
+          Callback là một hàm, được truyền vào dưới dạng đối số khi gọi hàm,
+          thường được sử dụng để xử lý các thao tác bất động bộ như call api,
+          thực hiện các tác vụ cần thời gian để hoàn thành
+        </li>
+        <li><strong>Ví dụ:</strong></li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-function">function</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"⏳ Đang lấy dữ liệu..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> data <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"John Doe"</span><span class="token punctuation">,</span> <span class="token literal-property property">email</span><span class="token operator">:</span> <span class="token string">"john@example.com"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"✅ Dữ liệu đã lấy xong!"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-return">return</span> data<span class="token punctuation">;</span> <span class="token comment">// Trả về dữ liệu nhưng không có ai nhận</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">handleData</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"📌 Dữ liệu người dùng:"</span><span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Gọi API lấy dữ liệu</span>
+<span class="token keyword keyword-const">const</span> user <span class="token operator">=</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Không có callback</span>
+<span class="token function">handleData</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Gọi ngay sau khi fetchData() chạy</span>
+</code></pre>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-function">function</span> <span class="token function">handleData</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"📌 Dữ liệu người dùng:"</span><span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Hàm giả lập API gọi dữ liệu từ server (giả sử mất 2 giây để lấy dữ liệu)</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"⏳ Đang lấy dữ liệu..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> data <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"John Doe"</span><span class="token punctuation">,</span> <span class="token literal-property property">email</span><span class="token operator">:</span> <span class="token string">"john@example.com"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"✅ Dữ liệu đã lấy xong!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Gọi callback và truyền dữ liệu vào</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Gọi API và xử lý dữ liệu khi có kết quả</span>
+<span class="token function">fetchData</span><span class="token punctuation">(</span>handleData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>Callback Hell</strong> hay còn gọi là
+          <strong>Pyramid of Doom</strong> xảy ra khi chúng ta lồng quá nhiều
+          callback bên trong nhau, khiến code trở nên khó đọc, khó bảo trì, khó
+          mở rộng, dễ gây lỗi.
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="js"
+        class="language-javascript js"
+      ><code><span class="token keyword keyword-function">function</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"🔍 Đang lấy thông tin user..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"John Doe"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"✅ User lấy xong!"</span><span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">getOrders</span><span class="token punctuation">(</span><span class="token parameter">userId<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">📦 Đang lấy danh sách đơn hàng cho userId: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>userId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> orders <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">101</span><span class="token punctuation">,</span> <span class="token literal-property property">productId</span><span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">102</span><span class="token punctuation">,</span> <span class="token literal-property property">productId</span><span class="token operator">:</span> <span class="token number">60</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"✅ Đơn hàng lấy xong!"</span><span class="token punctuation">,</span> orders<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span>orders<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">getProductDetails</span><span class="token punctuation">(</span><span class="token parameter">productId<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">🛒 Đang lấy thông tin sản phẩm cho productId: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>productId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> product <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> productId<span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Laptop XYZ"</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">1500</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"✅ Thông tin sản phẩm lấy xong!"</span><span class="token punctuation">,</span> product<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span>product<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Gọi API theo chuỗi (callback hell)</span>
+<span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">getOrders</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">orders</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">getProductDetails</span><span class="token punctuation">(</span>orders<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">productId</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">product</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"🔹 Hoàn tất lấy dữ liệu sản phẩm:"</span><span class="token punctuation">,</span> product<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <h3 id="vi-đồng-bộ-synchronous-và-bất-đồng-bộ-asynchronous">
+        VI. Đồng bộ (Synchronous) và Bất đồng bộ (Asynchronous)
+      </h3>
+      <h4 id="1-synchronous">1. Synchronous</h4>
+      <ul>
+        <li>
+          Đồng bộ có nghĩa là các đoạn mã được thực thi tuần tự từng dòng một,
+          tức là lệnh sau chỉ được chạy khi lệnh trước đã hoàn thành
+        </li>
+        <li>
+          Đặc điểm:
+          <ul>
+            <li>Dễ hiểu, dễ kiểm soát luồng chương trình</li>
+            <li>Khi một tác vụ mất thời gian dài, chương trình sẽ bị chặn</li>
+          </ul>
+        </li>
+      </ul>
+      <h4 id="2-asynchoronous">2. Asynchoronous</h4>
+      <ul>
+        <li>
+          <p>
+            Bất động bộ không bị chặn, cho phép tiếp tục chạy các lệnh khác
+            trong khi chờ các tác vụ hoàn thành
+          </p>
+        </li>
+        <li>
+          <p>Đặc điểm:</p>
+          <ul>
+            <li>Không bị chặn giúp ứng dụng mượt mà hơn</li>
+            <li>Khó kiểm soát luồng, dễ xảy ra callback hell</li>
+          </ul>
+        </li>
+        <li>
+          <p>Các cơ chế bất đồng bộ</p>
+          <ul>
+            <li><code>setTimeout()</code></li>
+            <li><code>setInterval()</code></li>
+            <li><code>Event Listeners</code></li>
+            <li><code>Fetch API</code></li>
+            <li><code>Promise</code></li>
+            <li><code>async/await</code></li>
+          </ul>
+        </li>
+      </ul>
+      <h3 id="vii-giới-thiệu-về-date-trong-javascript">
+        VII. <strong>Giới thiệu về <code>Date</code> trong JavaScript:</strong>
+      </h3>
+      <p>
+        <code>Date</code> là một đối tượng tích hợp trong JavaScript, dùng để
+        làm việc với thời gian và ngày tháng. Bạn có thể sử dụng
+        <code>Date</code> để tạo các đối tượng ngày tháng, lấy ngày hiện tại,
+        tính toán sự chênh lệch giữa các ngày, và định dạng ngày giờ theo nhiều
+        cách khác nhau.
+      </p>
+      <h4 id="một-số-phương-thức-cơ-bản-của-date">
+        Một số phương thức cơ bản của <code>Date</code>:
+      </h4>
+      <ul>
+        <li>
+          <strong>Tạo đối tượng <code>Date</code>:</strong>
+          <ul>
+            <li>
+              <code>new Date()</code>: Tạo đối tượng <code>Date</code> với thời
+              gian hiện tại.
+            </li>
+            <li>
+              <code>new Date(milliseconds)</code>: Tạo đối tượng
+              <code>Date</code> với một số mili giây tính từ 1/1/1970.
+            </li>
+            <li>
+              <code>new Date(dateString)</code>: Tạo đối tượng
+              <code>Date</code> từ chuỗi ngày tháng.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> currentDate <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lấy ngày giờ hiện tại</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>currentDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-let">let</span> specificDate <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2025</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Tháng tính từ 0 (Tháng 2 là 1)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>specificDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>Lấy các thành phần ngày tháng:</strong>
+          <ul>
+            <li><code>getFullYear()</code>: Lấy năm.</li>
+            <li>
+              <code>getMonth()</code>: Lấy tháng (tính từ 0, 0 là tháng 1).
+            </li>
+            <li><code>getDate()</code>: Lấy ngày trong tháng.</li>
+            <li>
+              <code>getDay()</code>: Lấy thứ trong tuần (0 là Chủ nhật, 1 là Thứ
+              hai, ...).
+            </li>
+            <li>
+              <code>getHours()</code>, <code>getMinutes()</code>,
+              <code>getSeconds()</code>, <code>getMilliseconds()</code>: Lấy
+              giờ, phút, giây, mili giây.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> currentDate <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>currentDate<span class="token punctuation">.</span><span class="token method function property-access">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lấy năm hiện tại</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>currentDate<span class="token punctuation">.</span><span class="token method function property-access">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lấy tháng hiện tại (0 - 11)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>currentDate<span class="token punctuation">.</span><span class="token method function property-access">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lấy ngày trong tháng</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>Cập nhật các thành phần ngày tháng:</strong>
+          <ul>
+            <li>
+              <code>setFullYear(year)</code>, <code>setMonth(month)</code>,
+              <code>setDate(date)</code>, <code>setHours(hours)</code>, ...: Cập
+              nhật giá trị tương ứng của đối tượng <code>Date</code>.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> date <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+date<span class="token punctuation">.</span><span class="token method function property-access">setFullYear</span><span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Cập nhật năm thành 2023</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>Chuyển đổi <code>Date</code> thành chuỗi:</strong>
+          <ul>
+            <li>
+              <code>toISOString()</code>: Chuyển đối tượng
+              <code>Date</code> thành chuỗi ISO 8601.
+            </li>
+            <li>
+              <code>toString()</code>: Trả về chuỗi mô tả ngắn gọn về đối tượng
+              <code>Date</code>.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token keyword keyword-let">let</span> date <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token method function property-access">toISOString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Chuyển đổi thành chuỗi chuẩn ISO</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Chuyển đổi thành chuỗi ngày giờ</span>
+</code></pre>
+      <hr />
+      <h3 id="viii-giới-thiệu-về-math-trong-javascript">
+        VIII. <strong>Giới thiệu về <code>Math</code> trong JavaScript:</strong>
+      </h3>
+      <p>
+        <code>Math</code> là một đối tượng tích hợp trong JavaScript cung cấp
+        các hàm toán học cơ bản để xử lý số học, bao gồm các phép toán số học
+        như cộng, trừ, nhân, chia, và các phép toán phức tạp hơn như căn bậc
+        hai, logarit, số mũ, và các hằng số toán học.
+      </p>
+      <h4 id="một-số-phương-thức-cơ-bản-của-math">
+        Một số phương thức cơ bản của <code>Math</code>:
+      </h4>
+      <ul>
+        <li>
+          <strong>Các hằng số trong <code>Math</code>:</strong>
+          <ul>
+            <li><code>Math.PI</code>: Hằng số Pi (khoảng 3.14159).</li>
+            <li><code>Math.E</code>: Hằng số e (khoảng 2.71828).</li>
+            <li><code>Math.LN2</code>: Logarit tự nhiên của 2.</li>
+            <li><code>Math.LN10</code>: Logarit tự nhiên của 10.</li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// In ra giá trị của Pi</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token constant">E</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// In ra giá trị của e</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>Các phương thức toán học cơ bản:</strong>
+          <ul>
+            <li><code>Math.abs(x)</code>: Trả về giá trị tuyệt đối của x.</li>
+            <li>
+              <code>Math.max(a, b, c, ...)</code>: Trả về giá trị lớn nhất trong
+              danh sách.
+            </li>
+            <li>
+              <code>Math.min(a, b, c, ...)</code>: Trả về giá trị nhỏ nhất trong
+              danh sách.
+            </li>
+            <li><code>Math.pow(x, y)</code>: Tính x mũ y.</li>
+            <li><code>Math.sqrt(x)</code>: Tính căn bậc hai của x.</li>
+            <li>
+              <code>Math.random()</code>: Trả về một số ngẫu nhiên từ 0 đến 1.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">abs</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về 10</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">max</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về 8</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">min</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về 1</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Tính 2^3 = 8</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">sqrt</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Tính căn bậc hai của 16 = 4</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về một số ngẫu nhiên từ 0 đến 1</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>Làm việc với góc và radians:</strong>
+          <ul>
+            <li>
+              <code>Math.sin(x)</code>: Tính sin của x (x là góc theo radian).
+            </li>
+            <li>
+              <code>Math.cos(x)</code>: Tính cos của x (x là góc theo radian).
+            </li>
+            <li>
+              <code>Math.tan(x)</code>: Tính tan của x (x là góc theo radian).
+            </li>
+            <li>
+              <code>Math.toDegrees(x)</code> và
+              <code>Math.toRadians(x)</code> không có sẵn trong
+              <code>Math</code>, nhưng bạn có thể chuyển đổi bằng cách sử dụng
+              công thức.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">sin</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Tính sin của 90 độ (Pi/2 radians) = 1</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">cos</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Tính cos của 0 độ = 1</span>
+</code></pre>
+      <ul>
+        <li>
+          <strong>Làm tròn và điều chỉnh số:</strong>
+          <ul>
+            <li><code>Math.round(x)</code>: Làm tròn số đến gần nhất.</li>
+            <li><code>Math.ceil(x)</code>: Làm tròn số lên.</li>
+            <li><code>Math.floor(x)</code>: Làm tròn số xuống.</li>
+            <li><code>Math.trunc(x)</code>: Cắt phần thập phân của số.</li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        data-role="codeBlock"
+        data-info="javascript"
+        class="language-javascript javascript"
+      ><code><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">round</span><span class="token punctuation">(</span><span class="token number">4.7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về 5</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">ceil</span><span class="token punctuation">(</span><span class="token number">4.1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về 5</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">floor</span><span class="token punctuation">(</span><span class="token number">4.9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về 4</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">trunc</span><span class="token punctuation">(</span><span class="token number">4.7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Trả về 4</span>
+</code></pre>
+    </div>
+  </body>
+</html>
